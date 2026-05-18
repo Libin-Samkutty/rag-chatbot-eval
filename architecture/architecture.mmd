@@ -1,0 +1,88 @@
+%%{init: {"theme": "dark", "themeVariables": {"primaryColor": "#1a1d27", "primaryTextColor": "#e2e4ed", "primaryBorderColor": "#5b8af5", "lineColor": "#7a7f99", "secondaryColor": "#0f1117", "tertiaryColor": "#2a2d3a"}} }%%
+
+flowchart TB
+
+    %% ── External actor ──────────────────────────────────────────────────
+    User(["👤  User"])
+
+    %% ── Frontend ─────────────────────────────────────────────────────────
+    subgraph FE["Frontend  ·  React via CDN  ·  static/index.html"]
+        direction LR
+        ChatUI["💬 Chat panel"]
+        ChunkUI["📄 Retrieved chunks panel"]
+        EvalUI["📊 Eval scores panel"]
+    end
+
+    %% ── FastAPI Backend ──────────────────────────────────────────────────
+    subgraph BE["FastAPI Backend  ·  Python 3.11+  ·  uvicorn"]
+        direction TB
+
+        subgraph Routes["API routes  ·  routers/"]
+            ChatRoute["POST /api/chat"]
+            HistRoute["GET  /api/history"]
+        end
+
+        subgraph RAG["RAG Pipeline  ·  rag/"]
+            direction LR
+            R1["① Embed query\nrag/retriever.py"]
+            R2["② Retrieve top-k chunks\nChromaDB query"]
+            R3["③ Augment prompt\n+ call LLM"]
+            R1 --> R2 --> R3
+        end
+
+        subgraph Evals["Eval Engine  ·  eval/"]
+            direction LR
+            E1["Faithfulness\nLLM-as-judge"]
+            E2["Answer Relevancy\nCosine similarity"]
+            E3["Context Precision\nChunk overlap score"]
+            E4["Latency\ntime.perf_counter"]
+        end
+
+        ChatRoute --> RAG
+        RAG --> Evals
+    end
+
+    %% ── External services ────────────────────────────────────────────────
+    subgraph OAI["OpenAI API"]
+        ChatModel["gpt-4o-mini\nChat generation\n+ Eval judge"]
+        EmbedModel["text-embedding-3-small\nQuery & chunk embeddings"]
+    end
+
+    %% ── Local storage ────────────────────────────────────────────────────
+    subgraph Store["Local Storage"]
+        ChromaDB[("ChromaDB\nvector store\n./chroma_db/")]
+        SQLite[("SQLite\neval_runs.db")]
+        KB["knowledge/\n~60 .txt articles\nindexed on first run"]
+    end
+
+    %% ── Connections ──────────────────────────────────────────────────────
+    User        <-->|"HTTP"| FE
+    FE          <-->|"fetch() JSON"| ChatRoute
+    FE          -->|"fetch() JSON"| HistRoute
+    HistRoute   -->|"SELECT"| SQLite
+
+    R1          -->|"embed query"| EmbedModel
+    R2          <-->|"query vectors"| ChromaDB
+    R3          -->|"chat completion"| ChatModel
+
+    E1          -->|"judge call"| ChatModel
+    E2          -->|"embed Q + A"| EmbedModel
+    E3          -->|"embed chunks + A"| EmbedModel
+
+    Evals       -->|"INSERT"| SQLite
+    KB          -.->|"indexed on\nfirst startup"| ChromaDB
+
+    %% ── Styles ───────────────────────────────────────────────────────────
+    classDef userNode  fill:#1a2744,stroke:#5b8af5,color:#e2e4ed
+    classDef uiNode    fill:#1a1d27,stroke:#5b8af5,color:#e2e4ed
+    classDef ragNode   fill:#0f2a1a,stroke:#3dd68c,color:#e2e4ed
+    classDef evalNode  fill:#2a1a0f,stroke:#fbbf24,color:#e2e4ed
+    classDef oaiNode   fill:#1a1a2a,stroke:#818cf8,color:#e2e4ed
+    classDef storeNode fill:#1a1a1a,stroke:#7a7f99,color:#e2e4ed
+
+    class User userNode
+    class ChatUI,ChunkUI,EvalUI uiNode
+    class R1,R2,R3 ragNode
+    class E1,E2,E3,E4 evalNode
+    class ChatModel,EmbedModel oaiNode
+    class ChromaDB,SQLite,KB storeNode

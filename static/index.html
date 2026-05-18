@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG Eval Chatbot</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1117;
+      --surface:  #1a1d27;
+      --border:   #2a2d3a;
+      --text:     #e2e4ed;
+      --muted:    #7a7f99;
+      --accent:   #5b8af5;
+      --green:    #3dd68c;
+      --red:      #f87171;
+      --amber:    #fbbf24;
+      --mono:     'IBM Plex Mono', monospace;
+      --sans:     'IBM Plex Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ---- Layout ---- */
+    #root { height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      background: var(--surface);
+    }
+
+    header h1 {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: rgba(91,138,245,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(91,138,245,0.3);
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr 340px;
+      flex: 1;
+      overflow: hidden;
+      gap: 0;
+    }
+
+    .panel {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .panel:last-child { border-right: none; }
+
+    .panel-header {
+      padding: 10px 16px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      background: var(--surface);
+    }
+
+    .panel-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .panel-body::-webkit-scrollbar { width: 4px; }
+    .panel-body::-webkit-scrollbar-track { background: transparent; }
+    .panel-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    /* ---- Chat panel ---- */
+    .chat-messages { display: flex; flex-direction: column; gap: 12px; }
+
+    .msg {
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .msg-user {
+      background: rgba(91,138,245,0.15);
+      border: 1px solid rgba(91,138,245,0.25);
+      align-self: flex-end;
+      color: var(--text);
+    }
+
+    .msg-assistant {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      align-self: flex-start;
+      color: var(--text);
+    }
+
+    .msg-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+
+    textarea {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      padding: 8px 12px;
+      resize: none;
+      outline: none;
+      min-height: 40px;
+      max-height: 120px;
+    }
+
+    textarea:focus { border-color: var(--accent); }
+
+    button.send-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      align-self: flex-end;
+      transition: opacity 0.15s;
+    }
+
+    button.send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      align-self: flex-start;
+      width: 56px;
+    }
+
+    .typing-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--muted);
+      animation: bounce 1.2s infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    /* ---- Chunks panel ---- */
+    .chunk-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .chunk-source {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .chunk-text { color: var(--text); }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+
+    .empty-state-icon { font-size: 28px; opacity: 0.4; }
+
+    /* ---- Eval panel ---- */
+    .eval-metric {
+      margin-bottom: 20px;
+    }
+
+    .eval-metric-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .metric-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+
+    .badge-pass {
+      background: rgba(61,214,140,0.15);
+      color: var(--green);
+      border: 1px solid rgba(61,214,140,0.3);
+    }
+
+    .badge-fail {
+      background: rgba(248,113,113,0.15);
+      color: var(--red);
+      border: 1px solid rgba(248,113,113,0.3);
+    }
+
+    .badge-info {
+      background: rgba(251,191,36,0.15);
+      color: var(--amber);
+      border: 1px solid rgba(251,191,36,0.3);
+    }
+
+    .progress-bar-bg {
+      background: var(--border);
+      border-radius: 3px;
+      height: 5px;
+      overflow: hidden;
+      margin-bottom: 5px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+
+    .bar-green  { background: var(--green); }
+    .bar-amber  { background: var(--amber); }
+    .bar-red    { background: var(--red); }
+
+    .metric-score {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .metric-reason {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .latency-value {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--amber);
+    }
+
+    .latency-unit {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 3px;
+    }
+
+    .overall-banner {
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .banner-pass {
+      background: rgba(61,214,140,0.12);
+      border: 1px solid rgba(61,214,140,0.3);
+      color: var(--green);
+    }
+
+    .banner-fail {
+      background: rgba(248,113,113,0.12);
+      border: 1px solid rgba(248,113,113,0.3);
+      color: var(--red);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+  const { useState, useRef, useEffect } = React;
+
+  // ---- Helper: score → bar colour class ----
+  function barColor(score) {
+    if (score >= 0.75) return 'bar-green';
+    if (score >= 0.5)  return 'bar-amber';
+    return 'bar-red';
+  }
+
+  // ---- Eval scores panel ----
+  function EvalPanel({ evalResult }) {
+    if (!evalResult) {
+      return (
+        <div className="empty-state">
+          <div className="empty-state-icon">⚡</div>
+          <div>Send a message to see eval scores</div>
+        </div>
+      );
+    }
+
+    const { faithfulness, answer_relevancy, context_precision, latency_ms, overall_passed } = evalResult;
+
+    function ScoreMetric({ name, metric, threshold }) {
+      const pct = Math.round(metric.score * 100);
+      return (
+        <div className="eval-metric">
+          <div className="eval-metric-header">
+            <span className="metric-name">{name}</span>
+            <span className={`metric-badge ${metric.passed ? 'badge-pass' : 'badge-fail'}`}>
+              {metric.passed ? '✓ PASS' : '✗ FAIL'}
+            </span>
+          </div>
+          <div className="metric-score" style={{ color: metric.passed ? 'var(--green)' : 'var(--red)' }}>
+            {pct}<span style={{ fontSize: 13, color: 'var(--muted)' }}>%</span>
+          </div>
+          <div className="progress-bar-bg">
+            <div
+              className={`progress-bar-fill ${barColor(metric.score)}`}
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+          <div className="metric-reason">{metric.reason}</div>
+          <div style={{ fontSize: 10, color: 'var(--muted)', marginTop: 3, fontFamily: 'var(--mono)' }}>
+            threshold ≥ {Math.round(threshold * 100)}%
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <div className={`overall-banner ${overall_passed ? 'banner-pass' : 'banner-fail'}`}>
+          {overall_passed ? '✓ ALL METRICS PASS' : '✗ ONE OR MORE METRICS FAIL'}
+        </div>
+
+        <ScoreMetric name="Faithfulness"       metric={faithfulness}       threshold={0.70} />
+        <hr className="divider" />
+        <ScoreMetric name="Answer Relevancy"   metric={answer_relevancy}   threshold={0.75} />
+        <hr className="divider" />
+        <ScoreMetric name="Context Precision"  metric={context_precision}  threshold={0.60} />
+        <hr className="divider" />
+
+        {/* Latency — no pass/fail */}
+        <div className="eval-metric">
+          <div className="eval-metric-header">
+            <span className="metric-name">Latency</span>
+            <span className="metric-badge badge-info">INFO</span>
+          </div>
+          <div>
+            <span className="latency-value">{Math.round(latency_ms).toLocaleString()}</span>
+            <span className="latency-unit">ms</span>
+          </div>
+          <div className="metric-reason" style={{ marginTop: 4 }}>
+            Total wall-clock time (retrieval + generation + eval)
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  // ---- Retrieved chunks panel ----
+  function ChunksPanel({ chunks, sources }) {
+    if (!chunks || chunks.length === 0) {
+      return (
+        <div className="empty-state">
+          <div className="empty-state-icon">📄</div>
+          <div>Retrieved chunks appear here</div>
+        </div>
+      );
+    }
+
+    return chunks.map((chunk, i) => (
+      <div className="chunk-card" key={i}>
+        <div className="chunk-source">
+          [{i + 1}] {sources?.[i] || 'unknown source'}
+        </div>
+        <div className="chunk-text">
+          {chunk.length > 300 ? chunk.slice(0, 300) + '…' : chunk}
+        </div>
+      </div>
+    ));
+  }
+
+  // ---- Main App ----
+  function App() {
+    const [messages, setMessages]       = useState([]);
+    const [input, setInput]             = useState('');
+    const [loading, setLoading]         = useState(false);
+    const [chunks, setChunks]           = useState(null);
+    const [chunkSources, setChunkSources] = useState(null);
+    const [evalResult, setEvalResult]   = useState(null);
+    const bottomRef = useRef(null);
+
+    // Auto-scroll to newest message
+    useEffect(() => {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages, loading]);
+
+    async function handleSend() {
+      const q = input.trim();
+      if (!q || loading) return;
+
+      setInput('');
+      setLoading(true);
+      setMessages(prev => [...prev, { role: 'user', content: q }]);
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question: q }),
+        });
+
+        if (!res.ok) {
+          const err = await res.text();
+          throw new Error(`Server error: ${err}`);
+        }
+
+        const data = await res.json();
+
+        setMessages(prev => [...prev, { role: 'assistant', content: data.answer }]);
+        setChunks(data.retrieved_chunks);
+        setChunkSources(data.chunk_sources);
+        setEvalResult(data.eval_result);
+
+      } catch (err) {
+        setMessages(prev => [
+          ...prev,
+          { role: 'assistant', content: `Error: ${err.message}`, isError: true }
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    function handleKeyDown(e) {
+      // Send on Enter, allow Shift+Enter for newlines
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSend();
+      }
+    }
+
+    return (
+      <div id="root" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+        {/* Header */}
+        <header>
+          <h1>rag-eval-chatbot</h1>
+          <span className="badge">gpt-4o-mini</span>
+          <span className="badge">ChromaDB</span>
+          <span className="badge">ML/AI knowledge base</span>
+        </header>
+
+        {/* Three panels */}
+        <div className="panels">
+
+          {/* ---- Panel 1: Chat ---- */}
+          <div className="panel">
+            <div className="panel-header">chat</div>
+            <div className="panel-body">
+              <div className="chat-messages">
+                {messages.length === 0 && (
+                  <div className="empty-state" style={{ paddingTop: 60 }}>
+                    <div className="empty-state-icon">💬</div>
+                    <div>Ask a question about ML or AI</div>
+                    <div style={{ fontSize: 11, opacity: 0.6, marginTop: 4 }}>
+                      Try: "How does attention work in transformers?"
+                    </div>
+                  </div>
+                )}
+
+                {messages.map((msg, i) => (
+                  <div key={i} className={`msg msg-${msg.role}`}>
+                    <div className="msg-label">{msg.role === 'user' ? 'you' : 'assistant'}</div>
+                    {msg.content}
+                  </div>
+                ))}
+
+                {loading && (
+                  <div className="typing-indicator">
+                    <div className="typing-dot" />
+                    <div className="typing-dot" />
+                    <div className="typing-dot" />
+                  </div>
+                )}
+
+                <div ref={bottomRef} />
+              </div>
+            </div>
+
+            <div className="chat-input-row">
+              <textarea
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Ask a question about ML or AI…"
+                rows={1}
+              />
+              <button className="send-btn" onClick={handleSend} disabled={loading || !input.trim()}>
+                {loading ? 'Thinking…' : 'Send ↵'}
+              </button>
+            </div>
+          </div>
+
+          {/* ---- Panel 2: Retrieved Chunks ---- */}
+          <div className="panel">
+            <div className="panel-header">retrieved chunks ({chunks ? chunks.length : 0})</div>
+            <div className="panel-body">
+              <ChunksPanel chunks={chunks} sources={chunkSources} />
+            </div>
+          </div>
+
+          {/* ---- Panel 3: Eval Scores ---- */}
+          <div className="panel">
+            <div className="panel-header">eval scores</div>
+            <div className="panel-body">
+              <EvalPanel evalResult={evalResult} />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
