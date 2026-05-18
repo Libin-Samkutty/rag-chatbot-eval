@@ -1,0 +1,102 @@
+[
+  {
+    "id": "gd_001",
+    "question": "What is the attention mechanism in transformers?",
+    "notes": "Core concept — should be well-covered in the knowledge base",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_002",
+    "question": "How does retrieval-augmented generation work?",
+    "notes": "RAG itself is in the knowledge base — good self-referential test",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_003",
+    "question": "What is gradient descent and how is it used in training neural networks?",
+    "notes": "Fundamental concept — should retrieve relevant optimisation articles",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_004",
+    "question": "What is RLHF and why is it used to train large language models?",
+    "notes": "RLHF article is in the knowledge base",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_005",
+    "question": "Explain the difference between supervised and unsupervised learning.",
+    "notes": "Basic ML distinction — should be covered in knowledge base",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_006",
+    "question": "What are word embeddings and how do they represent meaning?",
+    "notes": "Embeddings article is in the knowledge base",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_007",
+    "question": "What is the recipe for a perfect chocolate cake?",
+    "notes": "Out-of-domain question — model should say it cannot answer. Faithfulness may still pass if the model stays within context. Relevancy likely fails because the answer will be a refusal.",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": false,
+      "context_precision_pass": false
+    }
+  },
+  {
+    "id": "gd_008",
+    "question": "How does backpropagation compute gradients in a neural network?",
+    "notes": "Technical question — tests whether the model can explain an algorithm faithfully",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_009",
+    "question": "What is fine-tuning a language model?",
+    "notes": "Common concept, should be in knowledge base",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": true,
+      "context_precision_pass": true
+    }
+  },
+  {
+    "id": "gd_010",
+    "question": "Who won the 2024 FIFA World Cup and what was the final score?",
+    "notes": "Sports question — completely out of domain. All three metrics may fail or the model may correctly refuse.",
+    "expected": {
+      "faithfulness_pass": true,
+      "relevancy_pass": false,
+      "context_precision_pass": false
+    }
+  }
+]
