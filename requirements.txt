@@ -1,10 +1,44 @@
-openai>=1.30
+# RAG Eval Harness — Requirements
+# Verified versions as of June 2026
+# Python >= 3.9 required (3.11 recommended)
+
+# --- Core Framework ---
 fastapi>=0.111
 uvicorn[standard]>=0.29
 pydantic>=2.7
 pydantic-settings>=2.2
+
+# --- RAG Pipeline ---
 chromadb>=0.5
 tiktoken>=0.7
+
+# --- LLM Providers ---
+openai>=1.30              # GPT-4o judge + text-embedding-3-small
+                          # Only model NOT on Vertex — requires API key
+
+anthropic[vertex]>=0.25   # Claude via Vertex AI Model Garden
+                          # AsyncAnthropicVertex — no Anthropic API key needed
+
+google-genai>=1.0         # Gemini via Vertex AI (native)
+google-auth>=2.29         # Service account credential loading from JSON
+
+# --- Evaluation Frameworks ---
+ragas>=0.4.3              # Primary RAG evaluation orchestrator
+deepeval>=4.0.5           # G-Eval: coherence, historical_balance, toxicity
+
+# --- Knowledge Base ---
+wikipedia-api>=0.6        # Wikipedia article fetching for KB
+
+# --- UI ---
+streamlit>=1.35           # HITL review interface + eval dashboard
+
+# --- Data ---
+pandas>=2.2               # Golden dataset management + export
+
+# --- Testing ---
 pytest>=8.2
 pytest-asyncio>=0.23
-httpx>=0.27
+httpx>=0.27               # Async HTTP client for FastAPI test client
+
+# --- Dev / Utilities ---
+python-dotenv>=1.0        # .env loading fallback

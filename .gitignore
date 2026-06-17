@@ -9,3 +9,5 @@ eval_runs.db
 dist/
 .DS_Store
 knowledge/
+credentials/
+.deepeval*
