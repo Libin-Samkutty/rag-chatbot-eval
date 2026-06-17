@@ -27,7 +27,7 @@ class TestChunker:
         """Text much longer than CHUNK_SIZE should produce multiple chunks."""
         # Generate a long text (~1000 tokens)
         sentence = "The transformer model uses self-attention mechanisms. "
-        long_text = sentence * 50
+        long_text = sentence * 100  # ~1000 tokens, well above CHUNK_SIZE=512
         chunks = chunk_text(long_text, source="long.txt")
         assert len(chunks) > 1
 
@@ -242,16 +242,30 @@ class TestChecklistEvaluators:
         # Only 1 of 3 Tier 2 items passed — below threshold of 2
         assert result.passed is False
 
-    def test_completeness_both_must_pass(self):
-        """Completeness fails when only one of two items passes."""
-        from eval.models import ChecklistItem
-        from eval.checklists.completeness import evaluate_completeness
-        items = [
-            ChecklistItem(key="completeness_all_parts", question="?", result=True, tier=2),
-            ChecklistItem(key="completeness_no_omission", question="?", result=False, tier=2),
-        ]
-        result = evaluate_completeness(items)
+    def test_completeness_geval_passes_above_threshold(self):
+        """Completeness G-Eval passes when score >= 0.7."""
+        import asyncio
+        from unittest.mock import patch
+        from eval.deepeval_eval import score_completeness
+
+        with patch("eval.deepeval_eval._run_geval_sync", return_value=0.8):
+            result = asyncio.run(score_completeness("What caused WW1?", ["context chunk"], "The answer."))
+
+        assert result.passed is True
+        assert result.score == pytest.approx(0.8)
+        assert result.name == "completeness"
+
+    def test_completeness_geval_fails_below_threshold(self):
+        """Completeness G-Eval fails when score < 0.7."""
+        import asyncio
+        from unittest.mock import patch
+        from eval.deepeval_eval import score_completeness
+
+        with patch("eval.deepeval_eval._run_geval_sync", return_value=0.5):
+            result = asyncio.run(score_completeness("What caused WW1?", ["context chunk"], "The answer."))
+
         assert result.passed is False
+        assert result.score == pytest.approx(0.5)
 
     def test_context_precision_threshold(self):
         """Context precision passes when >=75% of chunks are relevant."""

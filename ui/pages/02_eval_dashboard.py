@@ -10,9 +10,9 @@ import httpx
 import pandas as pd
 import streamlit as st
 
-from config import settings
+import os
 
-API_BASE = f"http://localhost:{settings.api_port}"
+API_BASE = os.environ.get("API_BASE_URL", "http://localhost:8000")
 
 st.markdown(
     """
