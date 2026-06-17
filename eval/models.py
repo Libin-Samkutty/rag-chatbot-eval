@@ -1,28 +1,45 @@
 """
-eval/models.py — Pydantic models shared across all eval metrics.
+eval/models.py — Pydantic models for the evaluation framework.
 
-EvalScore  : the result of a single metric (score, reason, passed)
-EvalResult : the combined result of all four metrics for one chat turn
+Three-layer model:
+  ChecklistItem   — one binary Yes/No item with tier classification
+  DimensionResult — result for a single eval dimension (faithfulness, etc.)
+  EvalResult      — all 8 dimensions + latency + overall pass/fail
 """
 
-from pydantic import BaseModel, Field
+from typing import Literal
+from pydantic import BaseModel
 
 
-class EvalScore(BaseModel):
-    """Result of a single evaluation metric."""
+class ChecklistItem(BaseModel):
+    key: str               # e.g. "faith_no_hallucination"
+    question: str          # the Yes/No question asked of the judge
+    result: bool           # True = passed, False = failed
+    tier: Literal[1, 2]    # 1 = hard gate, 2 = threshold gate
 
-    score: float = Field(ge=0.0, le=1.0, description="Normalised 0–1 score")
-    reason: str = Field(description="One-sentence human-readable explanation")
-    passed: bool = Field(description="True if score meets the pass threshold")
+
+class DimensionResult(BaseModel):
+    name: str                       # e.g. "faithfulness"
+    passed: bool                    # final pass/fail for this dimension
+    items: list[ChecklistItem]      # empty for G-Eval holistic dimensions
+    score: float | None             # G-Eval score (0–1) for holistic dims; None for checklist dims
+    reason: str                     # one-sentence explanation
+    tier1_failed: list[str]         # keys of any Tier 1 items that failed
+    tier2_pass_rate: float          # proportion of Tier 2 items that passed (0.0–1.0)
 
 
 class EvalResult(BaseModel):
-    """Combined evaluation result for one chat turn."""
+    faithfulness: DimensionResult
+    answer_relevancy: DimensionResult
+    completeness: DimensionResult
+    context_precision: DimensionResult
+    context_recall: DimensionResult
+    coherence: DimensionResult
+    historical_balance: DimensionResult
+    toxicity: DimensionResult
+    latency_ms: float
+    overall_passed: bool   # True only if all 8 dimensions pass
 
-    faithfulness: EvalScore
-    answer_relevancy: EvalScore
-    context_precision: EvalScore
-    latency_ms: float = Field(description="Total request latency in milliseconds")
-    overall_passed: bool = Field(
-        description="True only if all three scored metrics pass"
-    )
+    @classmethod
+    def compute_overall(cls, dims: list[DimensionResult]) -> bool:
+        return all(d.passed for d in dims)
