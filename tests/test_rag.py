@@ -70,57 +70,214 @@ class TestChunker:
         for chunk in chunks:
             assert isinstance(chunk["text"], str)
 
+    def test_chunk_size_constant(self):
+        """CHUNK_SIZE should be 512 tokens."""
+        from rag.chunker import CHUNK_SIZE
+        assert CHUNK_SIZE == 512
+
+    def test_domain_tag_ww1(self):
+        """Files prefixed ww1_ should receive domain_tag == 'ww1'."""
+        chunks = chunk_text("World War I began in 1914.", source="ww1_world_war_i.txt")
+        assert chunks[0]["domain_tag"] == "ww1"
+
+    def test_domain_tag_historical_figures(self):
+        """Files prefixed figures_ should receive domain_tag == 'historical_figures'."""
+        chunks = chunk_text(
+            "Napoleon Bonaparte was a French military leader.",
+            source="figures_napoleon_bonaparte.txt",
+        )
+        assert chunks[0]["domain_tag"] == "historical_figures"
+
+    def test_domain_tag_general_fallback(self):
+        """Files with no recognised prefix should receive domain_tag == 'general'."""
+        chunks = chunk_text("Some generic content.", source="some_file.txt")
+        assert chunks[0]["domain_tag"] == "general"
+
 
 # --- Eval unit tests (no API calls) ---
 
 class TestEvalModels:
 
-    def test_eval_score_clamps(self):
-        """EvalScore should reject scores outside [0, 1]."""
-        from eval.models import EvalScore
-        import pytest
+    def test_checklist_item_construction(self):
+        """ChecklistItem should accept valid tier values."""
+        from eval.models import ChecklistItem
+        item = ChecklistItem(
+            key="faith_no_hallucination",
+            question="Does the answer avoid hallucinations?",
+            result=True,
+            tier=1,
+        )
+        assert item.key == "faith_no_hallucination"
+        assert item.result is True
+        assert item.tier == 1
 
-        with pytest.raises(Exception):
-            EvalScore(score=1.5, reason="too high", passed=True)
-
-        with pytest.raises(Exception):
-            EvalScore(score=-0.1, reason="too low", passed=False)
+    def test_dimension_result_construction(self):
+        """DimensionResult should store all fields correctly."""
+        from eval.models import ChecklistItem, DimensionResult
+        item = ChecklistItem(
+            key="faith_no_hallucination",
+            question="No hallucinations?",
+            result=True,
+            tier=1,
+        )
+        dim = DimensionResult(
+            name="faithfulness",
+            passed=True,
+            items=[item],
+            score=None,
+            reason="All checks passed.",
+            tier1_failed=[],
+            tier2_pass_rate=1.0,
+        )
+        assert dim.passed is True
+        assert dim.name == "faithfulness"
+        assert len(dim.items) == 1
 
     def test_eval_result_overall_passed(self):
-        """overall_passed should be False if any metric fails."""
-        from eval.models import EvalScore, EvalResult
+        """overall_passed should be False if any dimension fails."""
+        from eval.models import DimensionResult, EvalResult
 
-        passing = EvalScore(score=0.9, reason="ok", passed=True)
-        failing = EvalScore(score=0.3, reason="bad", passed=False)
+        def _dim(name: str, passed: bool) -> DimensionResult:
+            return DimensionResult(
+                name=name,
+                passed=passed,
+                items=[],
+                score=None,
+                reason="ok" if passed else "failed",
+                tier1_failed=[] if passed else ["some_key"],
+                tier2_pass_rate=1.0 if passed else 0.0,
+            )
 
         result = EvalResult(
-            faithfulness=passing,
-            answer_relevancy=failing,  # one failure
-            context_precision=passing,
+            faithfulness=_dim("faithfulness", True),
+            answer_relevancy=_dim("answer_relevancy", False),  # one failure
+            completeness=_dim("completeness", True),
+            context_precision=_dim("context_precision", True),
+            context_recall=_dim("context_recall", True),
+            coherence=_dim("coherence", True),
+            historical_balance=_dim("historical_balance", True),
+            toxicity=_dim("toxicity", True),
             latency_ms=500.0,
             overall_passed=False,
         )
         assert result.overall_passed is False
 
+    def test_eval_result_all_pass(self):
+        """overall_passed should be True when all dimensions pass."""
+        from eval.models import DimensionResult, EvalResult
 
-# --- Cosine similarity unit test ---
+        def _dim(name: str) -> DimensionResult:
+            return DimensionResult(
+                name=name,
+                passed=True,
+                items=[],
+                score=None,
+                reason="passed",
+                tier1_failed=[],
+                tier2_pass_rate=1.0,
+            )
 
-class TestCosineSimilarity:
+        result = EvalResult(
+            faithfulness=_dim("faithfulness"),
+            answer_relevancy=_dim("answer_relevancy"),
+            completeness=_dim("completeness"),
+            context_precision=_dim("context_precision"),
+            context_recall=_dim("context_recall"),
+            coherence=_dim("coherence"),
+            historical_balance=_dim("historical_balance"),
+            toxicity=_dim("toxicity"),
+            latency_ms=200.0,
+            overall_passed=True,
+        )
+        assert result.overall_passed is True
 
-    def test_identical_vectors_score_one(self):
-        """Cosine similarity of a vector with itself should be 1.0."""
-        from eval.relevancy import _cosine_similarity
-        vec = [0.1, 0.5, 0.3, 0.8]
-        assert abs(_cosine_similarity(vec, vec) - 1.0) < 1e-6
 
-    def test_orthogonal_vectors_score_zero(self):
-        """Orthogonal vectors should score 0.0."""
-        from eval.relevancy import _cosine_similarity
-        vec_a = [1.0, 0.0]
-        vec_b = [0.0, 1.0]
-        assert abs(_cosine_similarity(vec_a, vec_b)) < 1e-6
+# --- Checklist evaluation logic tests (no API calls) ---
 
-    def test_zero_vector_returns_zero(self):
-        """A zero vector should not cause a division-by-zero error."""
-        from eval.relevancy import _cosine_similarity
-        assert _cosine_similarity([0.0, 0.0], [1.0, 0.5]) == 0.0
+class TestChecklistEvaluators:
+
+    def test_faithfulness_tier1_failure(self):
+        """Faithfulness dimension must fail when a Tier 1 item is False."""
+        from eval.models import ChecklistItem
+        from eval.checklists.faithfulness import evaluate_faithfulness
+        items = [
+            ChecklistItem(key="faith_no_hallucination", question="?", result=False, tier=1),
+            ChecklistItem(key="faith_no_contradiction", question="?", result=True, tier=1),
+            ChecklistItem(key="faith_temporal_accuracy", question="?", result=True, tier=2),
+            ChecklistItem(key="faith_numeric_fidelity", question="?", result=True, tier=2),
+            ChecklistItem(key="faith_proper_naming", question="?", result=True, tier=2),
+        ]
+        result = evaluate_faithfulness(items)
+        assert result.passed is False
+        assert "faith_no_hallucination" in result.tier1_failed
+
+    def test_faithfulness_passes_all_ok(self):
+        """Faithfulness dimension passes when all items are True."""
+        from eval.models import ChecklistItem
+        from eval.checklists.faithfulness import evaluate_faithfulness
+        items = [
+            ChecklistItem(key="faith_no_hallucination", question="?", result=True, tier=1),
+            ChecklistItem(key="faith_no_contradiction", question="?", result=True, tier=1),
+            ChecklistItem(key="faith_temporal_accuracy", question="?", result=True, tier=2),
+            ChecklistItem(key="faith_numeric_fidelity", question="?", result=True, tier=2),
+            ChecklistItem(key="faith_proper_naming", question="?", result=True, tier=2),
+        ]
+        result = evaluate_faithfulness(items)
+        assert result.passed is True
+        assert result.tier1_failed == []
+        assert result.tier2_pass_rate == 1.0
+
+    def test_faithfulness_tier2_threshold_fail(self):
+        """Faithfulness fails when fewer than 2 Tier 2 items pass."""
+        from eval.models import ChecklistItem
+        from eval.checklists.faithfulness import evaluate_faithfulness
+        items = [
+            ChecklistItem(key="faith_no_hallucination", question="?", result=True, tier=1),
+            ChecklistItem(key="faith_no_contradiction", question="?", result=True, tier=1),
+            ChecklistItem(key="faith_temporal_accuracy", question="?", result=False, tier=2),
+            ChecklistItem(key="faith_numeric_fidelity", question="?", result=False, tier=2),
+            ChecklistItem(key="faith_proper_naming", question="?", result=True, tier=2),
+        ]
+        result = evaluate_faithfulness(items)
+        # Only 1 of 3 Tier 2 items passed — below threshold of 2
+        assert result.passed is False
+
+    def test_completeness_both_must_pass(self):
+        """Completeness fails when only one of two items passes."""
+        from eval.models import ChecklistItem
+        from eval.checklists.completeness import evaluate_completeness
+        items = [
+            ChecklistItem(key="completeness_all_parts", question="?", result=True, tier=2),
+            ChecklistItem(key="completeness_no_omission", question="?", result=False, tier=2),
+        ]
+        result = evaluate_completeness(items)
+        assert result.passed is False
+
+    def test_context_precision_threshold(self):
+        """Context precision passes when >=75% of chunks are relevant."""
+        from eval.models import ChecklistItem
+        from eval.checklists.context_precision import evaluate_context_precision
+        # 3 of 4 chunks relevant = 75% = exactly threshold → passes
+        items = [
+            ChecklistItem(key="precision_chunk_relevant", question="?", result=True, tier=2),
+            ChecklistItem(key="precision_chunk_relevant", question="?", result=True, tier=2),
+            ChecklistItem(key="precision_chunk_relevant", question="?", result=True, tier=2),
+            ChecklistItem(key="precision_chunk_relevant", question="?", result=False, tier=2),
+        ]
+        result = evaluate_context_precision(items)
+        assert result.passed is True  # 0.75 >= 0.75
+
+    def test_context_recall_below_threshold(self):
+        """Context recall fails when fewer than 80% of claims are covered."""
+        from eval.models import ChecklistItem
+        from eval.checklists.context_recall import evaluate_context_recall
+        # 3 of 5 = 60% < 80%
+        items = [
+            ChecklistItem(key="recall_claim_covered", question="?", result=True, tier=2),
+            ChecklistItem(key="recall_claim_covered", question="?", result=True, tier=2),
+            ChecklistItem(key="recall_claim_covered", question="?", result=True, tier=2),
+            ChecklistItem(key="recall_claim_covered", question="?", result=False, tier=2),
+            ChecklistItem(key="recall_claim_covered", question="?", result=False, tier=2),
+        ]
+        result = evaluate_context_recall(items)
+        assert result.passed is False
