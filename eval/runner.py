@@ -11,12 +11,12 @@ Dimension map:
     context_recall      → RAGAS ContextRecall    (eval/ragas_eval.py)
 
   Layer 2 — Generation:
-    faithfulness        → RAGAS Faithfulness     (eval/ragas_eval.py)
-    answer_relevancy    → RAGAS ResponseRelevancy(eval/ragas_eval.py)
-    completeness        → Custom LLM judge       (eval/ragas_eval.py)
-    coherence           → DeepEval G-Eval        (eval/deepeval_eval.py)
-    historical_balance  → DeepEval G-Eval        (eval/deepeval_eval.py)
-    toxicity            → DeepEval G-Eval        (eval/deepeval_eval.py)
+    faithfulness        → RAGAS-inspired GPT-4o judge (eval/ragas_eval.py)
+    answer_relevancy    → RAGAS-inspired GPT-4o judge (eval/ragas_eval.py)
+    completeness        → DeepEval G-Eval              (eval/deepeval_eval.py)
+    coherence           → DeepEval G-Eval              (eval/deepeval_eval.py)
+    historical_balance  → DeepEval G-Eval              (eval/deepeval_eval.py)
+    toxicity            → DeepEval G-Eval              (eval/deepeval_eval.py)
 
 Adding a new dimension:
   1. Implement async score_<name>() in eval/ragas_eval.py or eval/deepeval_eval.py
@@ -32,13 +32,13 @@ from openai import AsyncOpenAI
 
 from eval.deepeval_eval import (
     score_coherence,
+    score_completeness,
     score_historical_balance,
     score_toxicity,
 )
 from eval.models import EvalResult
 from eval.ragas_eval import (
     score_answer_relevancy,
-    score_completeness,
     score_context_precision,
     score_context_recall,
     score_faithfulness,
@@ -82,9 +82,9 @@ async def run_evals(
     ) = await asyncio.gather(
         score_faithfulness(context, answer, openai_client),
         score_answer_relevancy(question, answer, openai_client),
-        score_completeness(question, answer, openai_client),
-        score_context_precision(context, answer, openai_client),
-        score_context_recall(context, reference_answer, openai_client),
+        score_completeness(question, context, answer),
+        score_context_precision(context, question, answer, openai_client),
+        score_context_recall(context, answer, reference_answer, openai_client),
         score_coherence(question, answer),
         score_historical_balance(question, answer),
         score_toxicity(answer),

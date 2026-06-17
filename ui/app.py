@@ -110,7 +110,7 @@ st.markdown("---")
 st.markdown(
     """
 **Architecture notes**
-- No eval framework (no DeepEval, RAGAS libraries). Every eval is a plain Python async function.
+- Evals: 4 RAGAS-inspired metrics via direct GPT-4o async judge calls; 4 holistic dimensions via DeepEval G-Eval.
 - Generation: Gemini 2.5 Flash via Vertex AI.
 - Judge: GPT-4o via OpenAI.
 - Embeddings: text-embedding-3-small via OpenAI.

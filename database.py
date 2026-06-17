@@ -130,7 +130,7 @@ def get_history(limit: int = 50) -> list[dict]:
     with get_connection() as conn:
         rows = conn.execute("""
             SELECT * FROM conversations
-            ORDER BY created_at DESC
+            ORDER BY created_at DESC, rowid DESC
             LIMIT ?
         """, (limit,)).fetchall()
 

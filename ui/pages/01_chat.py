@@ -4,12 +4,12 @@ ui/pages/01_chat.py — Chat interface page.
 Calls POST /api/chat via httpx. Never imports from routers/ directly.
 """
 
+import os
+
 import httpx
 import streamlit as st
 
-from config import settings  # for API base URL only — no internal imports
-
-API_BASE = f"http://localhost:{settings.api_port}"
+API_BASE = os.environ.get("API_BASE_URL", "http://localhost:8000")
 
 # Dark theme CSS (same variables as app.py)
 st.markdown(
