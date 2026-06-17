@@ -1,31 +1,40 @@
 """
 rag/chunker.py — Splits plain text into overlapping, token-bounded chunks.
 
-Why chunk?
-  Language models have a context window limit, and embedding models work best
-  on short, focused passages. We split each .txt article into chunks of ~400
-  tokens with a 50-token overlap so that information near chunk boundaries
-  isn't lost.
+Chunk size: 512 tokens with 50-token overlap (historical prose benefits from
+larger windows compared to shorter technical text).
 
-Why tiktoken?
-  tiktoken is OpenAI's tokenizer — it counts tokens the same way the embedding
-  model does, so we get accurate chunk sizes rather than rough word estimates.
-
-Chunk size choices:
-  - 400 tokens ≈ 300 words ≈ 2-3 paragraphs — enough context for an answer
-  - 50-token overlap — prevents cutting sentences/ideas at boundaries
+domain_tag is derived from the filename prefix:
+  ww1_*         → "ww1"
+  ww2_*         → "ww2"
+  figures_*     → "historical_figures"
+  revolutions_* → "revolutions"
+  (anything else → "general")
 """
 
 from pathlib import Path
 
 import tiktoken
 
-
-# The cl100k_base encoding is used by text-embedding-3-small and gpt-4o-mini
+# cl100k_base is used by text-embedding-3-small and gpt-4o
 ENCODING = tiktoken.get_encoding("cl100k_base")
 
-CHUNK_SIZE = 400    # tokens
+CHUNK_SIZE = 512    # tokens
 CHUNK_OVERLAP = 50  # tokens
+
+_DOMAIN_PREFIXES: dict[str, str] = {
+    "ww1_": "ww1",
+    "ww2_": "ww2",
+    "figures_": "historical_figures",
+    "revolutions_": "revolutions",
+}
+
+
+def _derive_domain_tag(filename: str) -> str:
+    for prefix, tag in _DOMAIN_PREFIXES.items():
+        if filename.startswith(prefix):
+            return tag
+    return "general"
 
 
 def chunk_text(text: str, source: str) -> list[dict]:
@@ -33,34 +42,32 @@ def chunk_text(text: str, source: str) -> list[dict]:
     Split text into overlapping token-bounded chunks.
 
     Args:
-        text:   The full text of one article.
-        source: The filename (used as metadata in ChromaDB).
+        text:   Full article text.
+        source: Filename used as metadata in ChromaDB.
 
     Returns:
-        List of dicts with keys: 'text', 'source', 'chunk_index'
+        List of dicts with keys: text, source, chunk_index, domain_tag
     """
-    # Tokenise the full text
+    domain_tag = _derive_domain_tag(source)
     tokens = ENCODING.encode(text)
 
-    chunks = []
+    chunks: list[dict] = []
     start = 0
     chunk_index = 0
 
     while start < len(tokens):
         end = start + CHUNK_SIZE
         chunk_tokens = tokens[start:end]
-
-        # Decode back to a string for storage
-        chunk_text_str = ENCODING.decode(chunk_tokens)
+        chunk_str = ENCODING.decode(chunk_tokens)
 
         chunks.append({
-            "text": chunk_text_str,
+            "text": chunk_str,
             "source": source,
             "chunk_index": chunk_index,
+            "domain_tag": domain_tag,
         })
 
         chunk_index += 1
-        # Move forward by (CHUNK_SIZE - CHUNK_OVERLAP) to create the overlap
         start += CHUNK_SIZE - CHUNK_OVERLAP
 
     return chunks
