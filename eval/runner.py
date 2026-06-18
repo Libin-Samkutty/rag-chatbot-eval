@@ -1,22 +1,22 @@
 """
 eval/runner.py — Orchestrates all eight evaluation dimensions for one chat turn.
 
-All eight dimensions run concurrently via asyncio.gather, so the total
-eval time is approximately the slowest individual dimension rather than
-the sum of all eight.
+Cost optimisation: previously ran 8 concurrent GPT-4o calls (one per dimension).
+Now runs 2 concurrent calls — one for all four RAGAS dimensions, one for all
+four G-Eval dimensions. Total API cost reduced ~4x per chat turn.
 
 Dimension map:
-  Layer 1 — Retrieval:
-    context_precision   → RAGAS ContextPrecision (eval/ragas_eval.py)
-    context_recall      → RAGAS ContextRecall    (eval/ragas_eval.py)
+  RAGAS batch (eval/ragas_eval.py → score_ragas_all):
+    faithfulness        → RAGAS-inspired GPT-4o judge
+    answer_relevancy    → RAGAS-inspired GPT-4o judge
+    context_precision   → RAGAS ContextPrecision
+    context_recall      → RAGAS ContextRecall
 
-  Layer 2 — Generation:
-    faithfulness        → RAGAS-inspired GPT-4o judge (eval/ragas_eval.py)
-    answer_relevancy    → RAGAS-inspired GPT-4o judge (eval/ragas_eval.py)
-    completeness        → DeepEval G-Eval              (eval/deepeval_eval.py)
-    coherence           → DeepEval G-Eval              (eval/deepeval_eval.py)
-    historical_balance  → DeepEval G-Eval              (eval/deepeval_eval.py)
-    toxicity            → DeepEval G-Eval              (eval/deepeval_eval.py)
+  G-Eval batch (eval/deepeval_eval.py → score_geval_all):
+    completeness        → G-Eval criteria (direct GPT-4o)
+    coherence           → G-Eval criteria (direct GPT-4o)
+    historical_balance  → G-Eval criteria (direct GPT-4o)
+    toxicity            → G-Eval criteria (direct GPT-4o)
 
 Adding a new dimension:
   1. Implement async score_<name>() in eval/ragas_eval.py or eval/deepeval_eval.py
@@ -30,19 +30,23 @@ import time
 
 from openai import AsyncOpenAI
 
-from eval.deepeval_eval import (
-    score_coherence,
-    score_completeness,
-    score_historical_balance,
-    score_toxicity,
-)
+# Cost optimisation: individual dimension imports replaced by combined batch functions.
+# Originals preserved below for reference.
+from eval.deepeval_eval import score_geval_all
+# from eval.deepeval_eval import (
+#     score_coherence,
+#     score_completeness,
+#     score_historical_balance,
+#     score_toxicity,
+# )
 from eval.models import EvalResult
-from eval.ragas_eval import (
-    score_answer_relevancy,
-    score_context_precision,
-    score_context_recall,
-    score_faithfulness,
-)
+from eval.ragas_eval import score_ragas_all
+# from eval.ragas_eval import (
+#     score_answer_relevancy,
+#     score_context_precision,
+#     score_context_recall,
+#     score_faithfulness,
+# )
 
 
 async def run_evals(
@@ -70,25 +74,43 @@ async def run_evals(
     Returns:
         EvalResult with all eight DimensionResult fields populated.
     """
+    # Cost optimisation: 8 individual GPT-4o calls → 2 concurrent batch calls.
+    # RAGAS and G-Eval batches still run concurrently against each other.
     (
         faithfulness_result,
         relevancy_result,
-        completeness_result,
         precision_result,
         recall_result,
+    ), (
+        completeness_result,
         coherence_result,
         balance_result,
         toxicity_result,
     ) = await asyncio.gather(
-        score_faithfulness(context, answer, openai_client),
-        score_answer_relevancy(question, answer, openai_client),
-        score_completeness(question, context, answer),
-        score_context_precision(context, question, answer, openai_client),
-        score_context_recall(context, answer, reference_answer, openai_client),
-        score_coherence(question, answer),
-        score_historical_balance(question, answer),
-        score_toxicity(answer),
+        score_ragas_all(question, context, answer, reference_answer, openai_client),
+        score_geval_all(question, context, answer, openai_client),
     )
+
+    # --- Pre-consolidation: 8 individual concurrent calls (preserved for reference) ---
+    # (
+    #     faithfulness_result,
+    #     relevancy_result,
+    #     completeness_result,
+    #     precision_result,
+    #     recall_result,
+    #     coherence_result,
+    #     balance_result,
+    #     toxicity_result,
+    # ) = await asyncio.gather(
+    #     score_faithfulness(context, answer, openai_client),
+    #     score_answer_relevancy(question, answer, openai_client),
+    #     score_completeness(question, context, answer),
+    #     score_context_precision(context, question, answer, openai_client),
+    #     score_context_recall(context, answer, reference_answer, openai_client),
+    #     score_coherence(question, answer),
+    #     score_historical_balance(question, answer),
+    #     score_toxicity(answer),
+    # )
 
     latency_ms = (time.perf_counter() - start_time) * 1000
 
