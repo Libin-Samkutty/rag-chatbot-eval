@@ -14,7 +14,8 @@ Disagreement handling:
 
 Output:
   golden_dataset/golden_dataset.json — updated in-place with sme1_verdict,
-  sme2_verdict, needs_human_review, and reviewer_notes fields populated.
+  sme2_verdict, sme1_reasoning, sme2_reasoning, needs_human_review, and
+  reviewer_notes fields populated.
 
 Usage (run from project root):
     python -m golden_dataset.sme_review
@@ -56,17 +57,18 @@ For each of the following checklist items, respond Yes or No only:
 5. Is the answer complete — does it address all parts of the question?
 
 Respond in JSON: {{"item1": true/false, "item2": true/false, "item3": true/false, \
-"item4": true/false, "item5": true/false}}"""
+"item4": true/false, "item5": true/false, \
+"reasoning": "PASS: <one sentence why all items passed> OR FAIL: <one sentence on the main failing item>"}}"""
 
 # ---------------------------------------------------------------------------
 # SME response parsing
 # ---------------------------------------------------------------------------
 
-def _parse_sme_response(raw: str) -> dict[str, bool] | None:
+def _parse_sme_response(raw: str) -> tuple[dict[str, bool] | None, str]:
     """
-    Parse a JSON response from an SME into a dict of item -> bool.
+    Parse a JSON response from an SME into (items_dict, reasoning_str).
 
-    Returns None if parsing fails. Handles three response shapes:
+    items_dict is None if parsing fails. Handles three response shapes:
     - Pure JSON object
     - JSON wrapped in markdown code fences
     - Prose with an embedded JSON object (Claude sometimes adds preamble)
@@ -90,14 +92,16 @@ def _parse_sme_response(raw: str) -> dict[str, bool] | None:
             if not match:
                 raise
             data = json.loads(match.group())
-        return {
+        items = {
             k: bool(v)
             for k, v in data.items()
             if k.startswith("item")
         }
+        reasoning = str(data.get("reasoning", ""))
+        return items, reasoning
     except (json.JSONDecodeError, AttributeError, TypeError) as exc:
         logger.warning("Could not parse SME response: %s | raw: %.200s", exc, raw)
-        return None
+        return None, ""
 
 
 def _verdict_from_items(items: dict[str, bool] | None) -> str:
@@ -125,11 +129,11 @@ async def _sme1_review(
     question: str,
     reference_answer: str,
     client: Any,
-) -> dict[str, bool] | None:
+) -> tuple[dict[str, bool] | None, str]:
     """
     Run the SME1 (Claude) review for one Q&A pair.
 
-    Returns parsed item dict or None on failure.
+    Returns (items_dict, reasoning_str); items_dict is None on failure.
     """
     prompt = _SME_PROMPT.format(
         question=question,
@@ -146,7 +150,7 @@ async def _sme1_review(
         return _parse_sme_response(raw)
     except Exception as exc:
         logger.warning("SME1 (Claude) failed: %s", exc)
-        return None
+        return None, ""
 
 
 # ---------------------------------------------------------------------------
@@ -157,11 +161,12 @@ async def _sme2_review(
     question: str,
     reference_answer: str,
     client: Any,
-) -> dict[str, bool] | None:
+) -> tuple[dict[str, bool] | None, str]:
     """
     Run the SME2 (Gemini) review for one Q&A pair.
 
     google.genai is synchronous — we wrap with asyncio.to_thread.
+    Returns (items_dict, reasoning_str); items_dict is None on failure.
     """
     prompt = _SME_PROMPT.format(
         question=question,
@@ -186,7 +191,7 @@ async def _sme2_review(
         return _parse_sme_response(raw)
     except Exception as exc:
         logger.warning("SME2 (Gemini) failed: %s", exc)
-        return None
+        return None, ""
 
 
 # ---------------------------------------------------------------------------
@@ -206,7 +211,7 @@ async def _review_entry(
     reference: str = entry.get("reference_answer", "")
     entry_id: str = entry.get("id", "unknown")
 
-    sme1_items, sme2_items = await asyncio.gather(
+    (sme1_items, sme1_reasoning), (sme2_items, sme2_reasoning) = await asyncio.gather(
         _sme1_review(question, reference, sme1_client),
         _sme2_review(question, reference, sme2_client),
     )
@@ -233,6 +238,8 @@ async def _review_entry(
 
     entry["sme1_verdict"] = sme1_verdict
     entry["sme2_verdict"] = sme2_verdict
+    entry["sme1_reasoning"] = sme1_reasoning
+    entry["sme2_reasoning"] = sme2_reasoning
     entry["needs_human_review"] = needs_human
     entry["reviewer_notes"] = reviewer_notes
 
