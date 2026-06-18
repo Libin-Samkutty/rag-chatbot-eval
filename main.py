@@ -8,6 +8,14 @@ The lifespan context manager runs two startup tasks:
 
 Streamlit UI runs as its own process on port 8501 — FastAPI no longer
 mounts a static folder. The two processes communicate via HTTP.
+
+Note on Windows event loop: We previously set WindowsSelectorEventLoopPolicy
+here to avoid WinError 995 / InvalidStateError crashes on Python 3.14.
+That approach was ineffective because uvicorn overrides the policy after
+import. The real fix is in routers/chat.py and eval/deepeval_eval.py —
+both use native async APIs (gemini.aio, GEval.a_measure) instead of
+asyncio.to_thread, so the ProactorEventLoop is never involved in thread
+pool I/O.
 """
 
 from contextlib import asynccontextmanager
