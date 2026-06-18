@@ -43,3 +43,24 @@ class EvalResult(BaseModel):
     @classmethod
     def compute_overall(cls, dims: list[DimensionResult]) -> bool:
         return all(d.passed for d in dims)
+
+
+class LexicalResult(BaseModel):
+    """
+    API-free lexical similarity metrics for golden dataset regression testing.
+
+    Used exclusively in the test path (tests/evals/test_lexical_eval.py).
+    Never imported from eval/runner.py — does not affect live chat eval.
+
+    Gate logic:
+      passed = rouge_l >= 0.25 AND bertscore_f1 >= 0.85
+      bleu is logged for observability only and is excluded from the gate.
+
+    Exclusion rule: adversarial entries (question_type == "adversarial") must
+    not be scored — their reference_answer is a meta-refusal statement.
+    """
+
+    bleu: float
+    rouge_l: float
+    bertscore_f1: float
+    passed: bool
