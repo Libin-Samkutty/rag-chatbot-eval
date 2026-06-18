@@ -26,7 +26,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item1"
+    "reviewer_notes": "Archduke Franz Ferdinand was assassinated on June 28, 1914, in Sarajevo, Bosnia. He was shot by Gavrilo Princip, a Bosnian Serb nationalist and member of Young Bosnia. Princip and his fellow conspirators had connections to individuals associated with the Black Hand, including Dragutin Dimitrijević. The assassination is widely regarded as the immediate trigger of World War I.",
+    "sme1_reasoning": "FAIL: Gavrilo Princip was a member of Young Bosnia, not the Black Hand secret society, though he had connections to individuals affiliated with the Black Hand (specifically the organization Apis/Dragutin Dimitrijević).",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and correct."
   },
   {
     "id": "gd_002",
@@ -55,7 +57,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the date of November 11, 1918, the 11:00 AM ceasefire time, the parties involved in the Armistice, and the Treaty of Versailles being signed in June 1919.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer comprehensively addresses the question by distinguishing between the armistice and the formal peace treaty."
   },
   {
     "id": "gd_003",
@@ -81,10 +85,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "Flagged for random spot-check (10% sample)."
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All claims are verifiable and accurate — approximately 20 million deaths, 21 million wounded, and the subsequent influenza pandemic are all historically supported facts about World War I.",
+    "sme2_reasoning": "PASS: All factual claims, statistics, and contextual information provided in the answer are accurate and complete based on historical knowledge of World War I."
   },
   {
     "id": "gd_004",
@@ -113,7 +119,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately identifies both alliance blocs, correctly names the Allied Powers/Entente and Central Powers, and correctly lists the major member nations of each alliance, all of which are verifiable historical facts.",
+    "sme2_reasoning": "PASS: All factual claims in the answer are accurate, correctly named, and the answer completely addresses the question."
   },
   {
     "id": "gd_005",
@@ -142,7 +150,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately describes the defining physical features of trench warfare on the Western Front, including parallel trench systems, No Man's Land, the threats faced by soldiers (artillery, poison gas, machine gun fire), and the resulting stalemate, all of which are verifiable historical facts with no named individuals, specific dates, or statistics to verify incorrectly.",
+    "sme2_reasoning": "PASS: All factual claims are accurate, no dates or numbers are present to be incorrect, named entities are correct, and the answer addresses the defining physical features of trench warfare."
   },
   {
     "id": "gd_006",
@@ -171,7 +181,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item5"
+    "reviewer_notes": "The Treaty of Versailles, signed on June 28, 1919, imposed severe penalties on Germany. Germany was forced to accept full blame for the war under the 'War Guilt Clause' (Article 231), pay reparations ultimately set at 132 billion gold marks, and cede territories including Alsace-Lorraine to France and the Polish Corridor to Poland. Germany's military was also drastically reduced to 100,000 soldiers.",
+    "sme1_reasoning": "FAIL: While the answer covers major penalties accurately, it is incomplete regarding territorial losses — it omits other significant cessions such as Eupen and Malmedy to Belgium, North Schleswig to Denmark, Memel to Lithuania, the Saar region placed under League of Nations administration, and the loss of all German overseas colonies, meaning the territorial question is only partially addressed.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics are accurate, and the answer comprehensively addresses the question regarding territorial and financial penalties."
   },
   {
     "id": "gd_007",
@@ -200,7 +212,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the Schlieffen Plan was indeed a German strategy devised by Alfred von Schlieffen around 1905, it called for a rapid defeat of France through Belgium and Luxembourg before turning east to face Russia, and Britain entered the war in 1914 due to the violation of Belgian neutrality.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable."
   },
   {
     "id": "gd_008",
@@ -229,7 +243,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the dates (July 1 to November 18, 1916), location (Somme River, France), the nations involved (British, French, and German forces), the casualty figure for the first day (~57,000 British casualties), and the over 1 million combined casualties across all sides.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, statistics, and completeness aspects of the answer are accurate and well-addressed."
   },
   {
     "id": "gd_009",
@@ -258,7 +274,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the Ottoman Empire did enter WWI in October 1914 on the side of the Central Powers alongside Germany and Austria-Hungary, fought at Gallipoli against British and ANZAC forces, engaged in Mesopotamian and Caucasus campaigns, and the empire formally dissolved in 1922.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and well-addressed."
   },
   {
     "id": "gd_010",
@@ -285,10 +303,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
-    "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "sme2_verdict": "fail",
+    "reviewer_notes": "The assassination triggered a world war because of the interlocking alliance system in Europe at the time. Austria-Hungary declared war on Serbia, which brought in Russia (as Serbia's protector), which in turn activated Germany's alliance with Austria-Hungary, and Germany's invasion of Belgium activated France and Britain's treaty obligations. Within weeks, nearly all major European powers were at war due to these pre-existing entanglements.",
+    "sme1_reasoning": "PASS: The answer accurately describes the chain reaction triggered by the assassination — Austria-Hungary declaring war on Serbia, Russia's protective role, Germany's alliance obligations, and Britain and France being drawn in via Belgium — all of which are historically verifiable and correctly named.",
+    "sme2_reasoning": "FAIL: The answer contains a minor factual inaccuracy regarding France's entry into the war, as France's treaty obligations were activated by Germany's declaration of war on France and its alliance with Russia, not primarily by the invasion of Belgium."
   },
   {
     "id": "gd_011",
@@ -318,7 +338,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer contains accurate, verifiable historical facts about the Western Front stalemate, correctly identifies the key defensive technologies (machine guns, barbed wire, artillery), accurately describes the geographic extent of the trench systems from the English Channel to the Swiss border, and thoroughly addresses the causes of the stalemate.",
+    "sme2_reasoning": "PASS: All factual claims are accurate, names and places are correct, and the answer comprehensively addresses the question about the causes of the Western Front stalemate."
   },
   {
     "id": "gd_012",
@@ -344,10 +366,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "fail",
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item4"
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the April 1917 entry date, Germany's unrestricted submarine warfare, the Zimmermann Telegram's proposal of a German-Mexican alliance against the US, the shift in public opinion, and President Woodrow Wilson's request to Congress for a declaration of war.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and align with historical consensus regarding the US entry into WWI."
   },
   {
     "id": "gd_013",
@@ -374,9 +398,11 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "fail",
-    "sme2_verdict": "fail",
-    "reviewer_notes": ""
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately describes the Treaty of Versailles' key provisions (reparations, territorial losses, War Guilt Clause), correctly identifies the resulting economic and political instability in the 1920s and 1930s, and accurately explains how Hitler exploited these grievances to rise to power, directly linking these conditions to World War II.",
+    "sme2_reasoning": "PASS: All factual claims are accurate, names and dates are correct, and the answer fully addresses the question."
   },
   {
     "id": "gd_014",
@@ -402,10 +428,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the 1917 Revolution, Tsar Nicholas II's removal, Lenin and the Bolsheviks, the Treaty of Brest-Litovsk in March 1918, the ceded territories (Ukraine, Finland, Baltic states), and the freed German forces for the 1918 Spring Offensive are all historically verifiable and correctly stated.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and consequences mentioned in the answer are accurate and complete in addressing the question."
   },
   {
     "id": "gd_015",
@@ -434,7 +462,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer contains only verifiable historical facts about WWI trench warfare, correctly identifies the key factors (machine guns, barbed wire, artillery, No Man's Land advances, disease, shell shock, and trench conditions) that contributed to high casualty rates, with no named individuals, specific dates, or statistics present that could be inaccurate.",
+    "sme2_reasoning": "PASS: All factual claims in the answer are historically accurate, and the answer comprehensively addresses the question without any inaccuracies or omissions."
   },
   {
     "id": "gd_016",
@@ -464,7 +494,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the assassination date of June 28, 1914, the Schlieffen Plan's strategic objective, the Battle of the Marne in September 1914, and the resulting static trench warfare that persisted until 1918, collectively addressing the full causal chain from assassination to trench systems.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall explanation are accurate and complete, directly addressing the question."
   },
   {
     "id": "gd_017",
@@ -494,7 +526,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the Eastern Front's geographic span from the Baltic to Black Sea, its fluid mobile nature contrasting with static Western Front trenches, the industrial disparity between Russia and Germany, and the logistical weaknesses of Russia are all historically verifiable and correctly stated.",
+    "sme2_reasoning": "PASS: All factual claims in the answer are historically accurate, correctly named, and the answer comprehensively addresses the question."
   },
   {
     "id": "gd_018",
@@ -521,10 +555,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "fail",
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item4"
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the Ottoman Empire did enter WWI in October 1914 on the side of the Central Powers, the Gallipoli Campaign did run from 1915–1916 and consumed massive Allied resources, and these facts correctly support the argument about resource diversion from the Western Front.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer comprehensively addresses the question."
   },
   {
     "id": "gd_019",
@@ -554,7 +590,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item4"
+    "reviewer_notes": "SME disagreement on: item4",
+    "sme1_reasoning": "FAIL: The answer references 'millions of casualties' as a statistic, which is directionally accurate but vague and unverified as stated; more critically, no specific numbers are precisely cited, making item4 technically unverifiable as presented, though no explicitly stated figure is outright wrong.",
+    "sme2_reasoning": "PASS: All factual claims are verifiable, dates and names are accurate, and the answer comprehensively addresses the question."
   },
   {
     "id": "gd_020",
@@ -581,10 +619,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "fail",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1"
+    "reviewer_notes": "",
+    "sme1_reasoning": "FAIL: The statistic that Russia suffered approximately 1.7 million soldiers killed in combat is likely an underestimate — most historical sources place Russian military deaths between 1.7 million and over 2 million, which is borderline acceptable, but the claim that the Somme and Verdun 'each produced over a million casualties' is somewhat misleading for the Somme (approximately 1 million total Allied and German casualties combined is accurate), though Verdun's combined casualties are estimated at roughly 700,000–900,000, making the 'over a million' figure for Verdun questionable.",
+    "sme2_reasoning": "FAIL: The claim that the Battle of Verdun produced over a million casualties is generally inaccurate, with most historical estimates placing total casualties below one million."
   },
   {
     "id": "gd_021",
@@ -611,10 +651,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "pass",
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "SME disagreement on: item4",
+    "sme1_reasoning": "FAIL: The statistic of 'approximately one million square miles' is questionable — the territory ceded was closer to 300,000–400,000 square miles, and the '34% of Russia's European population' figure, while commonly cited, relates more precisely to about one-third of European Russia's population but the combination of statistics as presented is imprecise and potentially misleading.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics are accurate, and the answer comprehensively addresses the comparison requested by the question."
   },
   {
     "id": "gd_022",
@@ -644,7 +686,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate — both empires were Central Powers, Austria-Hungary dissolved in 1918, the Ottoman Empire formally ended in 1922, and the named nationalities and resistance movements (Arab revolts, Armenian resistance, Czech/Slovak/Croatian/Hungarian nationalism) are correctly identified.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and well-supported by historical knowledge."
   },
   {
     "id": "gd_023",
@@ -668,10 +712,12 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The reference answer correctly identifies that a recipe question falls outside the scope of a World History knowledge base, making no false historical claims, and appropriately addresses the question by acknowledging its irrelevance to the domain.",
+    "sme2_reasoning": "PASS: The answer accurately and completely states that the question is outside the scope of World History, and contains no inaccuracies."
   },
   {
     "id": "gd_024",
@@ -695,10 +741,12 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "fail",
-    "reviewer_notes": ""
+    "reviewer_notes": "SME disagreement on: item1, item5",
+    "sme1_reasoning": "FAIL: The answer does not address the question — Argentina won the 2022 FIFA World Cup, which is a verifiable historical fact, and the reference answer incorrectly deflects it as outside scope.",
+    "sme2_reasoning": "FAIL: The answer does not contain any historical facts, but rather a meta-statement about the knowledge base's scope."
   },
   {
     "id": "gd_025",
@@ -724,10 +772,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "fail",
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item4"
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer correctly identifies the subjective nature of the question, accurately names Ferdinand Foch as Allied Supreme Commander in 1918, correctly identifies Erich Ludendorff as a German strategist and Paul von Hindenburg as a key figure, and appropriately notes that historians disagree based on evaluative criteria.",
+    "sme2_reasoning": "PASS: All factual claims, names, and dates are accurate, and the answer comprehensively addresses the subjective nature of the question."
   },
   {
     "id": "gd_026",
@@ -756,7 +806,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the date of June 6, 1944, the codename Operation Overlord, the three primary Allied nations, all five beach names (Utah, Omaha, Gold, Juno, and Sword), and the approximate troop count of 156,000 on the first day, which aligns with historical records of the largest seaborne invasion in history.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics in the answer are accurate and complete, directly addressing the question and providing relevant context."
   },
   {
     "id": "gd_027",
@@ -785,7 +837,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1"
+    "reviewer_notes": "SME disagreement on: item1",
+    "sme1_reasoning": "FAIL: The dates are inaccurate — while mass extermination intensified from 1941, the Nazi regime's systematic persecution of Jews began in 1933, and the Holocaust is generally dated from 1933 to 1945, not solely 1941 to 1945.",
+    "sme2_reasoning": "FAIL: The timeframe provided for the Holocaust (1941-1945) is inaccurate, as the systematic persecution and murder of Jewish people began earlier, typically cited from 1933, 1938, or 1939."
   },
   {
     "id": "gd_028",
@@ -814,7 +868,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the start date of September 1, 1939, Germany's invasion of Poland, Britain and France's declaration of war, V-E Day on May 8, 1945, Germany's unconditional surrender, V-J Day on September 2, 1945, Japan's surrender, and the atomic bombings of Hiroshima and Nagasaki.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable."
   },
   {
     "id": "gd_029",
@@ -843,7 +899,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the cities (Hiroshima and Nagasaki), dates (August 6 and August 9, 1945), bomb codenames ('Little Boy' and 'Fat Man'), and casualty estimates, which align with historically documented figures.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, statistics, and completeness are accurate and correct based on historical knowledge."
   },
   {
     "id": "gd_030",
@@ -872,7 +930,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item3"
+    "reviewer_notes": "SME disagreement on: item3",
+    "sme1_reasoning": "FAIL: Friedrich Paulus held the rank of General (Generalfeldmarschall was conferred by Hitler just before the surrender, but more critically, he is typically referred to as a General rather than 'Field Marshal' at the time of the battle's conduct, though Hitler did promote him to Field Marshal on January 30, 1943, just before the surrender — this detail is debatable but technically accurate at the moment of surrender; however, calling it the 'first major German defeat on the Eastern Front' is contestable since the Battle of Moscow (1941) was also a significant German setback, making that claim potentially inaccurate.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer fully addresses both parts of the question."
   },
   {
     "id": "gd_031",
@@ -901,7 +961,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including Hitler's appointment as Chancellor on January 30, 1933, by President Paul von Hindenburg, Hindenburg's death in August 1934, Hitler's merging of the Chancellor and President offices into the title of Führer, the Third Reich label, and the start of World War II in 1939.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable based on historical knowledge."
   },
   {
     "id": "gd_032",
@@ -930,7 +992,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the December 7, 1941 Pearl Harbor attack date, the primary belligerents (US and Japan), the geographic scope across the Pacific and Asia, major campaign references, the atomic bombings, and Japan's surrender in September 1945, and the answer addresses both what the Pacific War was and when it began.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and events in the answer are accurate and the answer fully addresses the question about the Pacific War and its beginning."
   },
   {
     "id": "gd_033",
@@ -956,10 +1020,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "Flagged for random spot-check (10% sample)."
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately describes the Nuremberg Laws enacted on September 15, 1935, correctly names both laws (the Reich Citizenship Law and the Law for the Protection of German Blood and German Honour), accurately describes their provisions, and correctly contextualizes their role in the persecution and genocide of Jewish people.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and the answer fully addresses the question."
   },
   {
     "id": "gd_034",
@@ -988,7 +1054,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the total death toll range of 70-85 million, the civilian majority of 50-55 million, the Soviet Union's estimated 27 million deaths, and China's 15-20 million deaths, all consistent with established historical scholarship.",
+    "sme2_reasoning": "PASS: All factual claims, statistics, and names are accurate and complete, directly addressing the question with verifiable historical information."
   },
   {
     "id": "gd_035",
@@ -1017,7 +1085,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Operation Barbarossa was indeed Nazi Germany's invasion of the Soviet Union launched on June 22, 1941, the troop count of over 3.8 million Axis soldiers, the approximately 2,900-kilometer front, and the characterization as the largest military operation in history are all historically supported and verifiable.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics are accurate and the answer fully addresses the question."
   },
   {
     "id": "gd_036",
@@ -1046,7 +1116,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the date of December 7, 1941, the oil embargo imposed in response to Japan's occupation of French Indochina, the goal of neutralizing the U.S. Pacific Fleet, and Japan's strategic aim to seize Dutch and British colonial resources in Southeast Asia.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and historically sound."
   },
   {
     "id": "gd_037",
@@ -1075,7 +1147,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the unemployment figure of ~30% in 1932, Hitler's appointment as Chancellor in January 1933, the Nazis becoming the largest Reichstag party, and the cited causes of the Great Depression, Treaty of Versailles resentment, Weimar instability, and Nazi propaganda.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, statistics, and the overall completeness of the answer are accurate and correct."
   },
   {
     "id": "gd_038",
@@ -1101,10 +1175,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item2, item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — D-Day occurred on June 6, 1944, in Normandy, it opened a Western front forcing Germany into a two-front war, and Germany surrendered unconditionally approximately eleven months later in May 1945, with all named places and events correctly identified.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer comprehensively addresses the strategic significance of D-Day."
   },
   {
     "id": "gd_039",
@@ -1133,7 +1209,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item4"
+    "reviewer_notes": "SME disagreement on: item3",
+    "sme1_reasoning": "FAIL: The answer incorrectly mentions 'Hungarian flanks' — Operation Uranus broke through the Romanian (3rd and 4th Armies) and Italian flanks, not Hungarian forces; the Hungarian 2nd Army was destroyed later at the Battle of the Don (January 1943), not at Stalingrad.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, numbers, and completeness are accurate and correct according to historical knowledge."
   },
   {
     "id": "gd_040",
@@ -1162,7 +1240,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including the operation name (Operation Downfall), the battles referenced (Okinawa and Iwo Jima), the casualty estimates (hundreds of thousands to over a million Allied casualties), Japan's surrender date (August 15, 1945), and the sequence of events surrounding the atomic bombings and Japanese surrender.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics are accurate and the answer comprehensively addresses the question."
   },
   {
     "id": "gd_041",
@@ -1192,7 +1272,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the ideological components of Nazism, the role of Mein Kampf, the 1933 start of state policy implementation, the January 1942 Wannsee Conference, and the 'Final Solution' as the systematic extermination of European Jewry.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and correct."
   },
   {
     "id": "gd_042",
@@ -1219,10 +1301,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "Flagged for random spot-check (10% sample)."
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Stalingrad ended in February 1943 with a Soviet victory, D-Day occurred on June 6, 1944, and the strategic consequences described (Germany forced defensive, two-front crisis) are historically verifiable and the answer addresses both the broader Allied strategy and D-Day specifically.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and align with historical consensus."
   },
   {
     "id": "gd_043",
@@ -1249,10 +1333,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "fail",
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item4"
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately describes Nazi racial ideology, correctly dates the Nuremberg Laws to 1935, Kristallnacht to 1938, and the Final Solution's mass extermination phase to after 1941, with all named events and concepts correctly identified and the question fully addressed.",
+    "sme2_reasoning": "PASS: All factual claims, dates, named events, and the completeness of the answer are accurate and align with historical knowledge."
   },
   {
     "id": "gd_044",
@@ -1279,10 +1365,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including Germany's unconditional surrender on May 8, 1945, the atomic bombings of Hiroshima and Nagasaki, Japan's surrender announcement on August 15, 1945, the Soviet declaration of war on Japan, and the geopolitical consequences for Cold War divisions and U.S. atomic supremacy.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and geopolitical consequences presented in the answer are accurate and complete, addressing all parts of the question."
   },
   {
     "id": "gd_045",
@@ -1312,7 +1400,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including the role of the Reichsbahn in deportations, the SS administration of camps, the German civil service's logistical role, and the use of Zyklon B gas chambers at Auschwitz, collectively addressing the administrative and technological dimensions of the Holocaust's industrial scale.",
+    "sme2_reasoning": "PASS: All factual claims are verifiable, names are correct, and the answer comprehensively addresses the question by providing specific examples of administrative and technological capacities."
   },
   {
     "id": "gd_046",
@@ -1339,10 +1429,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the island-hopping strategy in the Pacific, the D-Day invasion in June 1944, Soviet pressure from the east, and the comparative reliance on naval and air power in the Pacific theater.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable."
   },
   {
     "id": "gd_047",
@@ -1372,7 +1464,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All facts are verifiable and accurate, including the Holocaust's ~11 million total victims, the Battle of Stalingrad's timeframe of August 1942 to February 1943, the approximate casualty figures for both Axis and Soviet forces, and the valid comparative conclusion that the Holocaust's death toll was an order of magnitude greater than Stalingrad's casualties.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics are accurate and the answer fully addresses the question."
   },
   {
     "id": "gd_048",
@@ -1396,10 +1490,12 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "fail",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item2, item3, item4"
+    "reviewer_notes": "",
+    "sme1_reasoning": "FAIL: The question asks about photosynthesis, a biology topic outside the scope of World History, and the reference answer appropriately declines to address it, meaning it contains no verifiable historical facts and does not actually answer the question posed.",
+    "sme2_reasoning": "FAIL: The answer does not contain historical facts and does not address the content of the question about photosynthesis."
   },
   {
     "id": "gd_049",
@@ -1425,8 +1521,10 @@
     },
     "needs_human_review": true,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: The answer correctly identifies that the question falls outside the scope of a World History knowledge base, contains no false historical claims, incorrect dates, misnamed entities, or inaccurate statistics, and fully addresses the question by appropriately declining to answer.",
+    "sme2_reasoning": "PASS: The answer correctly states that the question is outside the scope of World History, thus containing no historical facts, dates, names, or statistics to verify, and completely addresses the question by explaining its inability to answer."
   },
   {
     "id": "gd_050",
@@ -1455,7 +1553,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item1, item4"
+    "reviewer_notes": "SME disagreement on: item4",
+    "sme1_reasoning": "PASS: The answer correctly identifies the debate as ongoing for over 75 years, accurately characterizes both proponent and opponent arguments, and appropriately frames the question as a contested moral judgment rather than a verifiable fact; no statistics are present to verify, which is acceptable given the nature of the question.",
+    "sme2_reasoning": "PASS: All factual claims in the answer, including the description of historical debates and arguments, are accurate and complete."
   },
   {
     "id": "gd_051",
@@ -1484,7 +1584,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including Napoleon's birth date of August 15, 1769, his birthplace of Ajaccio, Corsica, the transfer of Corsica from Genoa to France in 1768, and his becoming Emperor in 1804.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate and the answer fully addresses the question."
   },
   {
     "id": "gd_052",
@@ -1513,7 +1615,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Churchill was indeed a Conservative Party member, became PM on May 10, 1940 (the same day Germany launched its Western offensive), and lost power after the Conservative defeat in the July 1945 general election.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable."
   },
   {
     "id": "gd_053",
@@ -1539,10 +1643,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Mandela became President in 1994 following the April 27, 1994 elections, served until 1999, and his election did mark the end of apartheid and the start of multi-racial democratic governance in South Africa.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and the answer fully addresses the question."
   },
   {
     "id": "gd_054",
@@ -1571,7 +1677,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Mohandas Karamchand Gandhi is his correct full birth name, October 2, 1869 is the correct birth date, Porbandar in present-day Gujarat, India is the correct birthplace, and the meaning of 'Mahatma' as 'great soul' is correctly stated.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and complete, directly addressing the question and providing relevant context."
   },
   {
     "id": "gd_055",
@@ -1597,10 +1705,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Lenin died on January 21, 1924, at age 53, from stroke complications beginning in May 1922, led the Bolshevik Revolution in 1917, and headed Soviet Russia until his death.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and complete, directly addressing the question."
   },
   {
     "id": "gd_056",
@@ -1629,7 +1739,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including Hitler's official title 'Führer und Reichskanzler,' his appointment as Chancellor on January 30, 1933, the merger of offices following Hindenburg's death in August 1934, and his suicide on April 30, 1945.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and historically correct."
   },
   {
     "id": "gd_057",
@@ -1658,7 +1770,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item2"
+    "reviewer_notes": "SME disagreement on: item2",
+    "sme1_reasoning": "FAIL: Stalin's birth date is debated — the Old Style (Julian calendar) date was December 18, 1878, but the New Style (Gregorian) date commonly cited is December 21, 1879, and Stalin himself used December 21, 1879 as his official birth date, making the reference answer's date of December 18, 1878 likely inaccurate.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and locations in the answer are accurate and complete, directly addressing all parts of the question."
   },
   {
     "id": "gd_058",
@@ -1687,7 +1801,9 @@
     "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item2"
+    "reviewer_notes": "SME disagreement on: item1, item2, item4",
+    "sme1_reasoning": "PASS: All facts are accurate — Mandela served 27 years (1964–1990), was primarily held on Robben Island off Cape Town, performed hard labor, and was released on February 11, 1990, a pivotal moment in ending apartheid.",
+    "sme2_reasoning": "FAIL: The answer incorrectly states that Nelson Mandela's 27 years in prison spanned from 1964 to 1990, which is a period of 26 years, and his 27 years of imprisonment actually began in 1962."
   },
   {
     "id": "gd_059",
@@ -1716,7 +1832,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the War of the Sixth Coalition, the fall of Paris in March 1814, the named Allied powers, the Treaty of Fontainebleau, Napoleon retaining the title of Emperor, and Elba's location off the coast of Italy.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable based on historical knowledge."
   },
   {
     "id": "gd_060",
@@ -1742,10 +1860,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "Flagged for random spot-check (10% sample)."
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including Gandhi's time in South Africa (1893–1914), the correct naming of Satyagraha, the identified influences (Tolstoy, Thoreau's 'Civil Disobedience,' and the Bhagavad Gita), and the connection to both his South African campaigns and the Indian independence movement.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and align with historical knowledge."
   },
   {
     "id": "gd_061",
@@ -1774,7 +1894,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the 1929 start date, the goals of state control and industrialization funding via Five-Year Plans, the elimination of kulaks, and the Holodomor famine of 1932–1933 resulting in millions of deaths.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and align with historical knowledge."
   },
   {
     "id": "gd_062",
@@ -1800,10 +1922,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including the January 30, 1933 appointment date, the correct naming of the Weimar Republic, NSDAP, Reichstag, President Paul von Hindenburg, the Reichstag Fire, and the Enabling Act of March 1933, with no incorrect statistics or omissions regarding the key factors of Hitler's rise to power.",
+    "sme2_reasoning": "FAIL: The answer does not contain any explicit statistics or numbers, therefore it cannot be assessed for correctness on that front."
   },
   {
     "id": "gd_063",
@@ -1829,10 +1953,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the July 1945 election date, Labour's landslide victory under Clement Attlee, the policy platforms including NHS creation, unemployment benefits, and nationalization, and the characterization of voter priorities over Churchill's wartime leadership are all historically verified.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and well-supported by historical consensus."
   },
   {
     "id": "gd_064",
@@ -1861,7 +1987,9 @@
     "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item4"
+    "reviewer_notes": "SME disagreement on: item1",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including Lenin's Siberian exile from 1897-1900, his subsequent years in Western Europe, his Bolshevik leadership role within the RSDLP, the sealed train return in April 1917, and the February Revolution that toppled Tsar Nicholas II.",
+    "sme2_reasoning": "FAIL: The answer contains a chronological inaccuracy by stating Lenin's first exile was due to his leadership of the Bolshevik faction, which had not yet formed during that period."
   },
   {
     "id": "gd_065",
@@ -1888,10 +2016,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Waterloo occurred in June 1815, the Congress of Vienna began in September 1814, the Final Act was signed on June 9, 1815 (just before Waterloo on June 18), and the Concert of Europe description is historically sound.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable."
   },
   {
     "id": "gd_066",
@@ -1921,7 +2051,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate — Lenin's Siberian exile, Western European exile, founding of Iskra, and Bolshevik organization, as well as Gandhi's South African years, development of Satyagraha, and Indian imprisonments are all historically correct and the answer addresses both figures' use of exile and imprisonment to develop political strategies.",
+    "sme2_reasoning": "PASS: All factual claims in the answer are accurate, correctly named, and the answer fully addresses the question without including any statistics or numbers."
   },
   {
     "id": "gd_067",
@@ -1948,10 +2080,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately identifies the totalitarian mechanisms shared by both regimes (NKVD/Gestapo, propaganda, cult of personality, one-party states), correctly states the Holocaust killed approximately 6 million Jews and millions of others, references the broader ~17 million civilian deaths figure, accurately describes Stalin's Gulag system and engineered famines, and correctly frames Hitler's ideology as racial purity and Stalin's as class struggle, fully addressing the question of how ideologically opposed regimes employed similar totalitarian methods leading to mass atrocities.",
+    "sme2_reasoning": "PASS: All factual claims, names, and statistics are accurate and the answer comprehensively addresses the question."
   },
   {
     "id": "gd_068",
@@ -1981,7 +2115,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer contains only verifiable historical facts about Churchill's democratic parliamentary leadership style and Stalin's dictatorial control, correctly names all individuals and institutional bodies, makes no specific numerical claims that could be inaccurate, and fully addresses both sides of the comparative question about their differing leadership styles during World War II.",
+    "sme2_reasoning": "PASS: All factual claims in the answer are accurate and verifiable, and the response comprehensively addresses the question about the differing leadership styles of Churchill and Stalin during World War II."
   },
   {
     "id": "gd_069",
@@ -2008,10 +2144,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": "Flagged for random spot-check (10% sample)."
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including Gandhi's consistent nonviolent approach in South Africa and India, Mandela's co-founding of Umkhonto we Sizwe in 1961 as the ANC's armed wing, his release in 1990, and his subsequent pivot to negotiation leading to a peaceful democratic transition.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and align with historical knowledge."
   },
   {
     "id": "gd_070",
@@ -2038,10 +2176,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "pass",
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "SME disagreement on: item4",
+    "sme1_reasoning": "FAIL: The statistic of 'over 400,000 men' lost in Napoleon's retreat is contested and likely understated — most historians estimate total Grande Armée casualties (killed, wounded, captured, deserted) at closer to 500,000 to 600,000 out of roughly 600,000 who entered Russia, making the '400,000' figure an undercount of the full human cost of the campaign.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and statistics are accurate, and the answer fully addresses the question."
   },
   {
     "id": "gd_071",
@@ -2068,7 +2208,9 @@
     "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1"
+    "reviewer_notes": "SME disagreement on: item5",
+    "sme1_reasoning": "PASS: The reference answer correctly identifies that a French culinary recipe question falls outside the scope of a World History knowledge base, making no factual claims that could be verified or disputed.",
+    "sme2_reasoning": "FAIL: The answer explicitly states the question is outside its scope and therefore does not address any part of the question."
   },
   {
     "id": "gd_072",
@@ -2092,10 +2234,12 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
-    "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item5",
+    "sme1_reasoning": "PASS: The reference answer correctly identifies that the question falls outside the scope of a World History knowledge base, making no factual claims that could be inaccurate, and appropriately declines to answer a physics/computer science question.",
+    "sme2_reasoning": "FAIL: The answer correctly identifies the question as outside the scope of World History but does not address any part of the original question about quantum entanglement."
   },
   {
     "id": "gd_073",
@@ -2126,7 +2270,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer correctly identifies the question as subjective, accurately names real historical figures (Churchill, Roosevelt, Mandela, Gandhi) without making false factual claims, contains no incorrect dates or statistics, and fully addresses the question by explaining why no definitive answer can be given.",
+    "sme2_reasoning": "PASS: All claims in the answer are verifiable observations about historical discourse and the nature of subjective questions, and all named entities are correct within the 20th-century context."
   },
   {
     "id": "gd_074",
@@ -2155,7 +2301,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately presents verifiable historical facts including the Napoleonic Code, the 1802 reimposition of slavery in French colonies, the Napoleonic Wars' death toll context, and Napoleon's administrative reforms, while correctly framing the hero/villain debate as subjective and addressing all aspects of the question.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and the answer comprehensively addresses the subjective nature of the question by presenting both sides of the historical debate."
   },
   {
     "id": "gd_075",
@@ -2185,7 +2333,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Stalin ruled the USSR for approximately 29 years (1924–1953), oversaw rapid industrialization, the USSR was on the victorious Allied side in WWII, and Hitler's regime lasted 12 years (1933–1945) ending in total military defeat, with the answer appropriately contextualizing the ambiguity of 'effectiveness' without making unsupported claims.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer comprehensively addresses the nuanced question."
   },
   {
     "id": "gd_076",
@@ -2214,7 +2364,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the year 1789, the date of July 14, the description of the Bastille as a royal fortress and prison, its symbolic significance, and the fact that Bastille Day is France's national holiday.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer fully addresses all parts of the question with relevant historical information."
   },
   {
     "id": "gd_077",
@@ -2243,7 +2395,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — the Declaration of Independence was adopted July 4, 1776, by the Second Continental Congress, Thomas Jefferson was the primary author, Franklin and Adams served on the drafting committee, and the document did announce separation from Britain while articulating Enlightenment principles of natural rights and self-governance.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and complete, directly addressing all parts of the question."
   },
   {
     "id": "gd_078",
@@ -2272,7 +2426,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer accurately identifies both phases of the 1917 Russian Revolution, correctly names the February and October Revolutions with their Gregorian calendar equivalents, correctly attributes the abdication of Tsar Nicholas II and the Provisional Government to the first phase, correctly credits Lenin's Bolsheviks with overthrowing the Provisional Government in the second phase, and accurately explains the Julian/Gregorian calendar discrepancy.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer fully addresses the question."
   },
   {
     "id": "gd_079",
@@ -2301,7 +2457,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer correctly identifies the start of the revolution in August 1791, the declaration of independence in January 1804, Haiti's status as the first Black republic and first Western Hemisphere nation to permanently abolish slavery, and the end of French colonial rule, all of which are verifiable and accurate historical facts that fully address the question.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numerical statements are accurate and the answer fully addresses all parts of the question."
   },
   {
     "id": "gd_080",
@@ -2330,7 +2488,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the date of January 1, 1959, Batista's flight from Cuba, the Sierra Maestra guerrilla campaign starting in 1956, and the subsequent establishment of a Soviet-aligned socialist state.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers in the answer are accurate and complete, and the answer fully addresses all parts of the question."
   },
   {
     "id": "gd_081",
@@ -2359,7 +2519,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate — India's independence date of August 15, 1947, Nehru as first Prime Minister, the 'Tryst with Destiny' speech delivered at midnight, and the Partition into India and Pakistan with accompanying violence and displacement are all historically verified facts.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and events in the answer are historically accurate and complete, directly addressing both parts of the question."
   },
   {
     "id": "gd_082",
@@ -2388,7 +2550,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the date of October 1, 1949, the proclamation of the People's Republic of China from Tiananmen Square in Beijing, the civil war against the Kuomintang under Chiang Kai-shek, and the retreat to Taiwan.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and verifiable."
   },
   {
     "id": "gd_083",
@@ -2417,7 +2581,9 @@
     "needs_human_review": true,
     "sme1_verdict": "fail",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item4, item5"
+    "reviewer_notes": "SME disagreement on: item4, item5",
+    "sme1_reasoning": "PASS: The answer contains verifiable historical facts, accurate dates (August 26, 1789), correctly named documents and institutions, and fully addresses the question, though no specific statistics or numbers are present to verify (item4 marked false as not applicable rather than incorrect).",
+    "sme2_reasoning": "FAIL: The answer is incomplete as it does not explicitly state that the Declaration of the Rights of Man and of the Citizen proclaimed the principle of 'fraternity', which was specifically asked in the question, focusing instead on 'sovereignty of the people'."
   },
   {
     "id": "gd_084",
@@ -2446,7 +2612,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the date of March 3, 1918, the correct identification of the Central Powers signatories, the territories ceded, the statistic of roughly one-third of European territory and population lost, and the annulment in November 1918 following Germany's defeat.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, statistics, and completeness aspects of the answer are accurate and correctly address the question."
   },
   {
     "id": "gd_085",
@@ -2475,7 +2643,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are historically verifiable — France's financial crisis from the Seven Years' War and American Revolutionary War, Louis XVI's failed tax reforms, the Ancien Régime's Three Estates structure, the Third Estate's disproportionate tax burden, and the influence of Enlightenment thinkers Voltaire, Rousseau, and Montesquieu are all accurately represented.",
+    "sme2_reasoning": "PASS: All factual claims are accurate, dates and names are correct, and the answer comprehensively addresses the primary causes of the French Revolution."
   },
   {
     "id": "gd_086",
@@ -2501,10 +2671,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are historically accurate, including the dates of the Stamp Act (1765), Townshend Acts (1767), Boston Massacre (1770), Boston Tea Party (1773), Intolerable Acts (1774), and the start of armed resistance in April 1775, with all events, legislation, and the 'no taxation without representation' slogan correctly identified and contextualized.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and events are accurate and the answer comprehensively addresses the main causes of the American Revolution."
   },
   {
     "id": "gd_087",
@@ -2533,7 +2705,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the causes (WWI toll, food/fuel shortages, military mismanagement, Rasputin's influence), the events in Petrograd (strikes, bread riots, garrison troops refusing orders), and Nicholas II's abdication date of March 2, 1917 (Old Style February 28, but March 2 in the Gregorian calendar is the accepted date used in reference).",
+    "sme2_reasoning": "PASS: The answer accurately and completely describes the conditions and events leading to the February Revolution and Nicholas II's abdication, with correct facts, dates, and names."
   },
   {
     "id": "gd_088",
@@ -2562,7 +2736,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are accurate, including the 1791 date, the Bois Caïman ceremony, Dutty Boukman's role, the influence of the French Revolution of 1789, and the characterization of Saint-Domingue as an extremely profitable and brutal colony where enslaved Africans vastly outnumbered French colonizers.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and well-supported by historical knowledge."
   },
   {
     "id": "gd_089",
@@ -2588,10 +2764,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
+    "needs_human_review": true,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "Flagged for random spot-check (10% sample).",
+    "sme1_reasoning": "PASS: All factual claims are accurate — Batista's 1952 coup, the corruption and U.S./organized crime ties, rural poverty, the 26th of July Movement's coalition and platform, Batista's repression, and the 1958 U.S. arms embargo are all historically verified and correctly described.",
+    "sme2_reasoning": "PASS: All factual claims, dates, and names in the answer are accurate and complete, directly addressing the question about conditions enabling Castro's success."
   },
   {
     "id": "gd_090",
@@ -2617,10 +2795,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are historically accurate, including the dates of the Second Sino-Japanese War (1937–1945), the final civil war phase (1946–1949), the roles of Chiang Kai-shek and Mao Zedong, and the key factors of corruption, hyperinflation, peasant support, land reform promises, and American aid to the Nationalists.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and well-supported by historical knowledge."
   },
   {
     "id": "gd_091",
@@ -2650,7 +2830,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate — the French Revolution's ideals of popular sovereignty and abolition of privilege did influence Russian revolutionary thought, Lenin and the Bolsheviks did study the Jacobin precedent, the French Revolutionary period of 1789–1799 is correctly dated, and the answer addresses the direct ideological and practical connections between the two revolutions as the question requires.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and well-supported by historical knowledge."
   },
   {
     "id": "gd_092",
@@ -2677,10 +2859,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "pass",
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "SME disagreement on: item1",
+    "sme1_reasoning": "FAIL: The claim that Bal Gangadhar Tilak explicitly referenced American ideals of liberty and the American Revolution as an inspiration is not well-documented or verifiable; Tilak was more directly influenced by Hindu revivalism and Indian historical traditions, and the specific attribution of American Revolutionary influence to him overstates the historical connection.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and correctly address the question."
   },
   {
     "id": "gd_093",
@@ -2707,10 +2891,12 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "pass",
-    "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item4"
+    "sme2_verdict": "pass",
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are historically accurate, including the 1789 French Revolution, the role of Toussaint Louverture, the Declaration of the Rights of Man, Napoleon's 1802 expedition to restore slavery, and Haiti's independence in 1804, and the answer thoroughly addresses both how the Haitian Revolution drew upon and challenged French Revolutionary ideals.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and correct."
   },
   {
     "id": "gd_094",
@@ -2740,7 +2926,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including the October 1917 Bolshevik seizure of power, the CCP founding in 1921 with Comintern support, Mao's peasant-centered adaptation of Marxism-Leninism, and Soviet material support contributing to the Nationalist collapse in 1949, collectively addressing the ideological, organizational, and practical dimensions of the question.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and concepts in the answer are historically accurate and the answer comprehensively addresses the question."
   },
   {
     "id": "gd_095",
@@ -2770,7 +2958,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including the dates of the Constitution ratification (1788), the federal government establishment (1789), the Reign of Terror timeframe (1793–1794), and the correct sequence of French Revolutionary phases (Directory, Consulate, Napoleon's empire), and the answer addresses both the differing outcomes and long-term political stability as asked.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the overall completeness of the answer are accurate and address the question thoroughly."
   },
   {
     "id": "gd_096",
@@ -2800,7 +2990,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are historically accurate, including the Bolsheviks' urban proletarian base in Petrograd, Mao's peasant-centered adaptation of Marxism, the rural guerrilla strategy, land reform promises, and the subsequent policy differences between Soviet industrialization favoring urban workers and Mao's rural collectivization programs.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and the completeness of the answer are accurate and well-supported by historical knowledge."
   },
   {
     "id": "gd_097",
@@ -2830,7 +3022,9 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: All factual claims are verifiable and accurate, including the characterization of the Haitian Revolution as the largest slave uprising, the founding of Haiti as the first Black republic in 1804, the Cuban Revolution's timeline of 1956–1959, Castro's leadership, the French indemnity of 1825, the Bay of Pigs invasion of 1961, and the Cuban Missile Crisis of 1962, and the answer addresses social composition, methods, and international consequences for both revolutions.",
+    "sme2_reasoning": "PASS: All factual claims, dates, names, and numbers are accurate, and the answer comprehensively addresses all parts of the question."
   },
   {
     "id": "gd_098",
@@ -2854,10 +3048,12 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": true,
+    "needs_human_review": false,
     "sme1_verdict": "fail",
-    "sme2_verdict": "pass",
-    "reviewer_notes": "SME disagreement on: item5"
+    "sme2_verdict": "fail",
+    "reviewer_notes": "",
+    "sme1_reasoning": "FAIL: The answer does not address the question at all — it deflects by claiming the topic is outside scope, when in fact the all-time FIFA World Cup top scorer (Miroslav Klose with 16 goals) is a verifiable factual claim within sports history knowledge.",
+    "sme2_reasoning": "FAIL: The answer does not provide the requested information about the record holder, instead stating the question is out of scope."
   },
   {
     "id": "gd_099",
@@ -2882,9 +3078,11 @@
       "recall_no_gaps": false
     },
     "needs_human_review": true,
-    "sme1_verdict": "pass",
+    "sme1_verdict": "fail",
     "sme2_verdict": "fail",
-    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4, item5"
+    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4",
+    "sme1_reasoning": "FAIL: The question pertains to molecular biology and modern medicine (CRISPR-Cas9 gene editing), which is entirely outside the scope of a World History knowledge base, and the reference answer correctly identifies this as out of scope rather than providing any historical facts to verify.",
+    "sme2_reasoning": "FAIL: The answer correctly identifies the question as outside the scope of World History, but it does not provide any information about CRISPR-Cas9, thus failing to answer the question completely."
   },
   {
     "id": "gd_100",
@@ -2914,6 +3112,8 @@
     "needs_human_review": false,
     "sme1_verdict": "pass",
     "sme2_verdict": "pass",
-    "reviewer_notes": ""
+    "reviewer_notes": "",
+    "sme1_reasoning": "PASS: The answer contains only verifiable historical claims about the French and American Revolutions' respective influences, correctly identifies their impact on democratic republicanism, constitutional government, federalism, and Latin America, avoids false statistics or misdated events, and fully addresses the comparative question while appropriately acknowledging its subjective nature.",
+    "sme2_reasoning": "PASS: The answer accurately describes the historical impacts and scholarly perspectives regarding both revolutions, contains no specific dates, numbers, or named individuals, and fully addresses the subjective nature of the question."
   }
 ]
