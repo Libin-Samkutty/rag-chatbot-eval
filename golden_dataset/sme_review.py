@@ -16,7 +16,7 @@ Output:
   golden_dataset/golden_dataset.json — updated in-place with sme1_verdict,
   sme2_verdict, needs_human_review, and reviewer_notes fields populated.
 
-Usage:
+Usage (run from project root):
     python -m golden_dataset.sme_review
 """
 
@@ -35,7 +35,7 @@ from config import settings, load_vertex_credentials
 logger = logging.getLogger(__name__)
 
 _HERE = pathlib.Path(__file__).parent
-_GOLDEN_PATH = _HERE / "golden_dataset.json"
+_GOLDEN_PATH = _HERE.parent / "tests" / "evals" / "golden_dataset.json"
 
 # ---------------------------------------------------------------------------
 # SME prompt template (from AGENT2_QA.md)
@@ -66,18 +66,30 @@ def _parse_sme_response(raw: str) -> dict[str, bool] | None:
     """
     Parse a JSON response from an SME into a dict of item -> bool.
 
-    Returns None if parsing fails.
+    Returns None if parsing fails. Handles three response shapes:
+    - Pure JSON object
+    - JSON wrapped in markdown code fences
+    - Prose with an embedded JSON object (Claude sometimes adds preamble)
     """
+    import re
+
     try:
-        # Strip any markdown code fences the model might add.
         text = raw.strip()
+        # Strip markdown code fences.
         if text.startswith("```"):
             lines = text.splitlines()
             text = "\n".join(
                 line for line in lines
                 if not line.startswith("```")
             ).strip()
-        data = json.loads(text)
+        # Try direct parse first; fall back to extracting the first {...} block.
+        try:
+            data = json.loads(text)
+        except json.JSONDecodeError:
+            match = re.search(r'\{[^{}]+\}', text, re.DOTALL)
+            if not match:
+                raise
+            data = json.loads(match.group())
         return {
             k: bool(v)
             for k, v in data.items()
@@ -127,6 +139,7 @@ async def _sme1_review(
         response = await client.messages.create(
             model=settings.claude_model,
             max_tokens=512,
+            system="You are a JSON API. Respond only with a valid JSON object. No preamble, explanation, or markdown.",
             messages=[{"role": "user", "content": prompt}],
         )
         raw = response.content[0].text if response.content else ""
@@ -245,7 +258,7 @@ async def run_sme_review() -> None:
         )
 
     payload = json.loads(_GOLDEN_PATH.read_text(encoding="utf-8"))
-    entries: list[dict[str, Any]] = payload.get("entries", [])
+    entries: list[dict[str, Any]] = payload if isinstance(payload, list) else payload.get("entries", [])
 
     if not entries:
         logger.error("Golden dataset has no entries.")
@@ -321,9 +334,9 @@ async def run_sme_review() -> None:
     # ------------------------------------------------------------------ #
     # Write back
     # ------------------------------------------------------------------ #
-    payload["entries"] = updated_entries
+    output = updated_entries if isinstance(payload, list) else {**payload, "entries": updated_entries}
     _GOLDEN_PATH.write_text(
-        json.dumps(payload, indent=2, ensure_ascii=False),
+        json.dumps(output, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     logger.info("Updated golden dataset written to %s.", _GOLDEN_PATH)

@@ -6,7 +6,9 @@
     "difficulty": "easy",
     "question": "When was Archduke Franz Ferdinand assassinated?",
     "reference_answer": "Archduke Franz Ferdinand was assassinated on June 28, 1914, in Sarajevo, Bosnia. He was shot by Gavrilo Princip, a Bosnian Serb nationalist and member of the Black Hand secret society. This event is widely regarded as the immediate trigger that set off World War I.",
-    "expected_chunks": ["ww1_assassination_franz_ferdinand.txt"],
+    "expected_chunks": [
+      "ww1_assassination_franz_ferdinand.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -21,10 +23,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item1"
   },
   {
     "id": "gd_002",
@@ -33,7 +35,9 @@
     "difficulty": "easy",
     "question": "On what date did World War I officially end?",
     "reference_answer": "World War I officially ended on November 11, 1918, when the Armistice was signed between the Allied Powers and Germany. The ceasefire took effect at 11:00 AM on the 11th day of the 11th month. The formal peace was later codified in the Treaty of Versailles, signed in June 1919.",
-    "expected_chunks": ["ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -49,8 +53,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -60,7 +64,9 @@
     "difficulty": "easy",
     "question": "Approximately how many people died as a result of World War I?",
     "reference_answer": "World War I resulted in approximately 20 million deaths, including both military personnel and civilians. An additional 21 million people were wounded. The war remains one of the deadliest conflicts in human history, and its aftermath included a devastating influenza pandemic that killed millions more.",
-    "expected_chunks": ["ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -75,10 +81,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "Flagged for random spot-check (10% sample)."
   },
   {
     "id": "gd_004",
@@ -87,7 +93,9 @@
     "difficulty": "easy",
     "question": "Which two main alliance blocs fought in World War I?",
     "reference_answer": "World War I was fought between the Allied Powers (also called the Entente) and the Central Powers. The Allies primarily included France, Britain, Russia, and later the United States, while the Central Powers consisted of Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria.",
-    "expected_chunks": ["ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -103,8 +111,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -114,7 +122,9 @@
     "difficulty": "easy",
     "question": "What were the defining physical features of trench warfare on the Western Front?",
     "reference_answer": "Trench warfare on the Western Front was characterized by elaborate systems of parallel trenches dug into the ground, separated by a deadly strip of land called 'No Man's Land.' Soldiers lived in these trenches for extended periods, facing artillery bombardment, poison gas attacks, and machine gun fire. The static nature of the trenches led to a prolonged stalemate along the front.",
-    "expected_chunks": ["ww1_trench_warfare.txt"],
+    "expected_chunks": [
+      "ww1_trench_warfare.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -130,8 +140,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -141,7 +151,9 @@
     "difficulty": "medium",
     "question": "What were the main territorial and financial penalties imposed on Germany by the Treaty of Versailles?",
     "reference_answer": "The Treaty of Versailles, signed on June 28, 1919, imposed severe penalties on Germany. Germany was forced to accept full blame for the war under the 'War Guilt Clause' (Article 231), pay reparations ultimately set at 132 billion gold marks, and cede territories including Alsace-Lorraine to France and the Polish Corridor to Poland. Germany's military was also drastically reduced to 100,000 soldiers.",
-    "expected_chunks": ["ww1_treaty_of_versailles.txt"],
+    "expected_chunks": [
+      "ww1_treaty_of_versailles.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -156,10 +168,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item5"
   },
   {
     "id": "gd_007",
@@ -168,7 +180,9 @@
     "difficulty": "medium",
     "question": "What was the Schlieffen Plan and which country devised it?",
     "reference_answer": "The Schlieffen Plan was a German military strategy devised by Field Marshal Alfred von Schlieffen in 1905. It called for a rapid defeat of France through a sweeping invasion via Belgium and Luxembourg, before turning east to face Russia, avoiding a prolonged two-front war. Germany's execution of a modified version of the plan in 1914 brought Britain into the war due to the violation of Belgian neutrality.",
-    "expected_chunks": ["ww1_western_front.txt"],
+    "expected_chunks": [
+      "ww1_western_front.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -184,8 +198,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -195,7 +209,9 @@
     "difficulty": "medium",
     "question": "What was the Battle of the Somme and when did it take place?",
     "reference_answer": "The Battle of the Somme was one of the largest battles of World War I, fought from July 1 to November 18, 1916, along the Somme River in France. It involved British and French forces fighting the German army, and the first day of the battle—July 1, 1916—remains the bloodiest single day in British military history, with approximately 57,000 British casualties. The battle resulted in over 1 million combined casualties on all sides.",
-    "expected_chunks": ["ww1_western_front.txt"],
+    "expected_chunks": [
+      "ww1_western_front.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -211,8 +227,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -222,7 +238,9 @@
     "difficulty": "hard",
     "question": "What was the role of the Ottoman Empire during World War I, and which side did it join?",
     "reference_answer": "The Ottoman Empire entered World War I in October 1914 on the side of the Central Powers, allied with Germany and Austria-Hungary. The Ottomans opened several fronts, including the Gallipoli Campaign against the British and ANZAC forces, and the Mesopotamian and Caucasus campaigns. Their entry into the war extended the conflict across the Middle East, and the empire's defeat contributed to its eventual dissolution in 1922.",
-    "expected_chunks": ["ww1_ottoman_empire_wwi.txt"],
+    "expected_chunks": [
+      "ww1_ottoman_empire_wwi.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -238,8 +256,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -249,7 +267,10 @@
     "difficulty": "easy",
     "question": "Why did the assassination of Archduke Franz Ferdinand lead to a world war rather than a localized conflict?",
     "reference_answer": "The assassination triggered a world war because of the interlocking alliance system in Europe at the time. Austria-Hungary declared war on Serbia, which brought in Russia (as Serbia's protector), which in turn activated Germany's alliance with Austria-Hungary, and Germany's invasion of Belgium activated France and Britain's treaty obligations. Within weeks, nearly all major European powers were at war due to these pre-existing entanglements.",
-    "expected_chunks": ["ww1_assassination_franz_ferdinand.txt", "ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_assassination_franz_ferdinand.txt",
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -265,8 +286,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -276,7 +297,10 @@
     "difficulty": "medium",
     "question": "What caused the stalemate on the Western Front during World War I?",
     "reference_answer": "The stalemate on the Western Front was caused primarily by the dominance of defensive technology over offensive tactics. Machine guns, barbed wire, and artillery made frontal assaults across No Man's Land catastrophically costly for attackers. Neither side could achieve a decisive breakthrough, and both armies dug extensive trench systems that stretched from the English Channel to the Swiss border, locking the front in place for most of the war.",
-    "expected_chunks": ["ww1_western_front.txt", "ww1_trench_warfare.txt"],
+    "expected_chunks": [
+      "ww1_western_front.txt",
+      "ww1_trench_warfare.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -292,8 +316,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -303,7 +327,9 @@
     "difficulty": "medium",
     "question": "Why did the United States enter World War I in 1917?",
     "reference_answer": "The United States entered World War I in April 1917 primarily due to two major factors: Germany's resumption of unrestricted submarine warfare, which threatened American ships and lives, and the interception of the Zimmermann Telegram, in which Germany secretly proposed a military alliance with Mexico against the United States. Public opinion shifted significantly against Germany, and President Woodrow Wilson asked Congress for a declaration of war.",
-    "expected_chunks": ["ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -318,10 +344,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_013",
@@ -330,7 +356,9 @@
     "difficulty": "medium",
     "question": "How did the Treaty of Versailles contribute to the rise of Adolf Hitler and World War II?",
     "reference_answer": "The Treaty of Versailles imposed humiliating and economically crippling terms on Germany, including massive reparations, territorial losses, and the 'War Guilt Clause.' These conditions fueled widespread resentment, economic instability, and political extremism in Germany throughout the 1920s and 1930s. Adolf Hitler successfully exploited this national grievance, using promises to overturn the treaty as a central plank of his rise to power, ultimately contributing to the conditions that led to World War II.",
-    "expected_chunks": ["ww1_treaty_of_versailles.txt"],
+    "expected_chunks": [
+      "ww1_treaty_of_versailles.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -346,8 +374,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "fail",
+    "sme2_verdict": "fail",
     "reviewer_notes": ""
   },
   {
@@ -357,7 +385,9 @@
     "difficulty": "hard",
     "question": "What caused Russia to withdraw from World War I, and what were the consequences for the Eastern Front?",
     "reference_answer": "Russia withdrew from World War I primarily due to the Russian Revolution of 1917, which toppled Tsar Nicholas II and brought the Bolsheviks to power under Vladimir Lenin. The Bolsheviks, committed to ending the war, signed the Treaty of Brest-Litovsk with Germany in March 1918, ceding vast territories including Ukraine, Finland, and the Baltic states. Russia's withdrawal freed up German forces for a final major offensive on the Western Front in 1918.",
-    "expected_chunks": ["ww1_eastern_front.txt"],
+    "expected_chunks": [
+      "ww1_eastern_front.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -373,8 +403,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -384,7 +414,9 @@
     "difficulty": "hard",
     "question": "Why did trench warfare lead to such high casualty rates among infantrymen in World War I?",
     "reference_answer": "Trench warfare produced catastrophic casualty rates because the defensive advantages of fortified trenches, machine guns, and barbed wire far outpaced offensive tactics of the time. Commanders ordered infantry to advance across open No Man's Land into concentrated machine gun and artillery fire, resulting in mass slaughter. Disease, exposure, and shell shock further decimated troops living in waterlogged, rat-infested trenches for months at a time.",
-    "expected_chunks": ["ww1_trench_warfare.txt"],
+    "expected_chunks": [
+      "ww1_trench_warfare.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -400,8 +432,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -411,7 +443,10 @@
     "difficulty": "medium",
     "question": "How did the assassination of Archduke Franz Ferdinand ultimately lead to the establishment of trench systems on the Western Front?",
     "reference_answer": "The assassination of Franz Ferdinand on June 28, 1914, triggered a cascade of alliance obligations that brought Germany, France, and Britain into war. Germany's Schlieffen Plan required a rapid advance through Belgium into France, but French and British resistance halted the German advance at the Battle of the Marne in September 1914. Both sides then dug defensive trenches to hold their positions, creating the static trench lines that defined the Western Front until 1918.",
-    "expected_chunks": ["ww1_assassination_franz_ferdinand.txt", "ww1_western_front.txt"],
+    "expected_chunks": [
+      "ww1_assassination_franz_ferdinand.txt",
+      "ww1_western_front.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -427,8 +462,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -438,7 +473,10 @@
     "difficulty": "medium",
     "question": "How did conditions on the Eastern Front differ from the trench warfare experienced on the Western Front?",
     "reference_answer": "The Eastern Front was far more fluid and mobile than the Western Front, spanning a much larger geographic area from the Baltic Sea to the Black Sea. While the Western Front was defined by static trench systems and a narrow strip of contested territory, the Eastern Front saw large advances and retreats across hundreds of miles. The disparity in industrial capacity between Russia and Germany, as well as weaker Russian logistics, contributed to more dynamic but still extremely costly warfare in the East.",
-    "expected_chunks": ["ww1_eastern_front.txt", "ww1_trench_warfare.txt"],
+    "expected_chunks": [
+      "ww1_eastern_front.txt",
+      "ww1_trench_warfare.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -454,8 +492,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -465,7 +503,10 @@
     "difficulty": "hard",
     "question": "How did the Ottoman Empire's entry into World War I affect the overall Allied strategy on the Western Front?",
     "reference_answer": "The Ottoman Empire's entry into the war in October 1914 on the side of the Central Powers forced the Allies to divert significant resources away from the Western Front to new theaters in the Middle East and the Dardanelles. The failed Gallipoli Campaign of 1915–1916 consumed hundreds of thousands of Allied troops and considerable naval assets that might otherwise have reinforced the Western Front. This dispersion of Allied strength contributed to the prolongation of the stalemate in France and Belgium.",
-    "expected_chunks": ["ww1_ottoman_empire_wwi.txt", "ww1_western_front.txt"],
+    "expected_chunks": [
+      "ww1_ottoman_empire_wwi.txt",
+      "ww1_western_front.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -480,10 +521,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_019",
@@ -492,7 +533,10 @@
     "difficulty": "hard",
     "question": "In what ways did the Treaty of Versailles's treatment of Germany reflect the experiences and losses suffered on the Western Front?",
     "reference_answer": "The devastating human and material losses suffered by France and Britain on the Western Front—including millions of casualties and the devastation of French territory—directly shaped the punitive terms of the Treaty of Versailles. France in particular, having endured the bulk of the fighting on its own soil, insisted on harsh reparations and territorial penalties to compensate for its losses and to prevent future German aggression. The 'War Guilt Clause' forcing Germany to accept full blame was a direct emotional and political response to the suffering caused by four years of trench warfare.",
-    "expected_chunks": ["ww1_western_front.txt", "ww1_treaty_of_versailles.txt"],
+    "expected_chunks": [
+      "ww1_western_front.txt",
+      "ww1_treaty_of_versailles.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -507,10 +551,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_020",
@@ -519,7 +563,10 @@
     "difficulty": "medium",
     "question": "How did the scale and nature of fighting on the Eastern Front compare to that on the Western Front during World War I?",
     "reference_answer": "The Western Front was characterized by a narrow, highly fortified trench line stretching roughly 700 km, with relatively small territorial gains at enormous human cost—battles like the Somme and Verdun each produced over a million casualties. The Eastern Front, by contrast, was far more fluid, covering thousands of kilometers and seeing armies advance and retreat over large areas, though losses were similarly staggering. Russia suffered the highest casualties of any single nation, losing approximately 1.7 million soldiers killed in combat.",
-    "expected_chunks": ["ww1_western_front.txt", "ww1_eastern_front.txt"],
+    "expected_chunks": [
+      "ww1_western_front.txt",
+      "ww1_eastern_front.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -534,10 +581,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1"
   },
   {
     "id": "gd_021",
@@ -546,7 +593,10 @@
     "difficulty": "medium",
     "question": "How did the terms of the Treaty of Versailles compare to the terms of the Treaty of Brest-Litovsk that Germany imposed on Russia?",
     "reference_answer": "The Treaty of Brest-Litovsk (March 1918) was arguably even harsher than Versailles, forcing Russia to cede approximately one million square miles of territory including Ukraine, Finland, and the Baltic states—roughly 34% of Russia's European population. The Treaty of Versailles similarly stripped Germany of territory and imposed reparations, but Germany retained its core national state. Ironically, Germany's defeat in the West meant Brest-Litovsk was annulled, while Versailles became the hated settlement it had to endure.",
-    "expected_chunks": ["ww1_eastern_front.txt", "ww1_treaty_of_versailles.txt"],
+    "expected_chunks": [
+      "ww1_eastern_front.txt",
+      "ww1_treaty_of_versailles.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -562,8 +612,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -573,7 +623,10 @@
     "difficulty": "hard",
     "question": "How did the Ottoman Empire's experience in World War I compare to that of Austria-Hungary as a multinational empire fighting the war?",
     "reference_answer": "Both the Ottoman Empire and Austria-Hungary were multiethnic empires that entered WWI as Central Powers and ultimately collapsed as a result of the war. Austria-Hungary struggled to maintain cohesion among its many nationalities including Czechs, Slovaks, Croatians, and Hungarians, whose nationalist movements undermined military effectiveness. The Ottoman Empire similarly faced Arab revolts and Armenian resistance, and both empires were dissolved into successor states after the war—Austria-Hungary in 1918 and the Ottoman Empire formally in 1922.",
-    "expected_chunks": ["ww1_ottoman_empire_wwi.txt", "ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_ottoman_empire_wwi.txt",
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -589,8 +642,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -615,10 +668,10 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4"
   },
   {
     "id": "gd_024",
@@ -643,8 +696,8 @@
       "recall_no_gaps": false
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "fail",
+    "sme2_verdict": "fail",
     "reviewer_notes": ""
   },
   {
@@ -654,7 +707,9 @@
     "difficulty": "medium",
     "question": "Who was the greatest military commander of World War I?",
     "reference_answer": "This question is ambiguous because 'greatest' is a subjective value judgment with no single correct answer. Different criteria—strategic genius, care for soldiers, ultimate victory, or innovation—yield different answers. Candidates often discussed include Ferdinand Foch (Allied Supreme Commander in 1918), Erich Ludendorff (German strategist), and Paul von Hindenburg, but historians disagree, and any answer depends on the evaluative framework applied.",
-    "expected_chunks": ["ww1_world_war_i.txt"],
+    "expected_chunks": [
+      "ww1_world_war_i.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -670,9 +725,9 @@
       "recall_no_gaps": true
     },
     "needs_human_review": true,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": "Ambiguous value judgment; no single authoritative answer possible."
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_026",
@@ -681,7 +736,9 @@
     "difficulty": "easy",
     "question": "On what date did the D-Day Normandy landings take place?",
     "reference_answer": "The D-Day Normandy landings took place on June 6, 1944, and were codenamed Operation Overlord. Allied forces—primarily American, British, and Canadian troops—landed on five beaches along the Normandy coast of France: Utah, Omaha, Gold, Juno, and Sword. It was the largest seaborne invasion in history, involving over 156,000 troops on the first day.",
-    "expected_chunks": ["ww2_d_day.txt"],
+    "expected_chunks": [
+      "ww2_d_day.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -697,8 +754,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -708,7 +765,9 @@
     "difficulty": "easy",
     "question": "Approximately how many Jewish people were killed during the Holocaust?",
     "reference_answer": "Approximately six million Jewish people were killed during the Holocaust, representing about two-thirds of the Jewish population of Europe. The Holocaust was the systematic, state-sponsored persecution and murder carried out by the Nazi German regime between 1941 and 1945. Victims were killed in mass shootings, gas vans, and purpose-built extermination camps such as Auschwitz-Birkenau.",
-    "expected_chunks": ["ww2_holocaust.txt"],
+    "expected_chunks": [
+      "ww2_holocaust.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -723,10 +782,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1"
   },
   {
     "id": "gd_028",
@@ -735,7 +794,9 @@
     "difficulty": "easy",
     "question": "When did World War II begin and end?",
     "reference_answer": "World War II began on September 1, 1939, when Nazi Germany invaded Poland, prompting Britain and France to declare war on Germany. The war ended in two stages: Victory in Europe (V-E Day) was declared on May 8, 1945, following Germany's unconditional surrender, and Victory over Japan (V-J Day) was declared on September 2, 1945, after Japan's surrender following the atomic bombings of Hiroshima and Nagasaki.",
-    "expected_chunks": ["ww2_world_war_ii.txt"],
+    "expected_chunks": [
+      "ww2_world_war_ii.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -751,8 +812,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -762,7 +823,9 @@
     "difficulty": "easy",
     "question": "On which two Japanese cities were atomic bombs dropped in August 1945?",
     "reference_answer": "The United States dropped atomic bombs on the Japanese cities of Hiroshima on August 6, 1945, and Nagasaki on August 9, 1945. The bomb dropped on Hiroshima, codenamed 'Little Boy,' killed an estimated 70,000–80,000 people immediately. The bomb on Nagasaki, codenamed 'Fat Man,' killed an estimated 40,000 people immediately, with tens of thousands more dying from radiation sickness in the weeks and months that followed.",
-    "expected_chunks": ["ww2_atomic_bombings_hiroshima_nagasaki.txt"],
+    "expected_chunks": [
+      "ww2_atomic_bombings_hiroshima_nagasaki.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -778,8 +841,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -789,7 +852,9 @@
     "difficulty": "easy",
     "question": "What was the Battle of Stalingrad and why is it considered a turning point of World War II?",
     "reference_answer": "The Battle of Stalingrad (August 1942 – February 1943) was a major confrontation between Nazi Germany and the Soviet Union for control of the city of Stalingrad in southern Russia. The German 6th Army, under Field Marshal Friedrich Paulus, was encircled and eventually surrendered—the first major German defeat on the Eastern Front. It is considered a turning point because it halted Germany's eastern advance and marked the beginning of a sustained Soviet counteroffensive that would ultimately end the war in Europe.",
-    "expected_chunks": ["ww2_battle_of_stalingrad.txt"],
+    "expected_chunks": [
+      "ww2_battle_of_stalingrad.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -804,10 +869,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item3"
   },
   {
     "id": "gd_031",
@@ -816,7 +881,9 @@
     "difficulty": "medium",
     "question": "When did Adolf Hitler become Chancellor of Germany and establish the Nazi regime?",
     "reference_answer": "Adolf Hitler was appointed Chancellor of Germany on January 30, 1933, by President Paul von Hindenburg. After Hindenburg's death in August 1934, Hitler merged the offices of Chancellor and President, declaring himself Führer (Leader) of Germany. The Nazi regime, also known as the Third Reich, then proceeded to dismantle democratic institutions and pursue aggressive expansionist policies that led to World War II in 1939.",
-    "expected_chunks": ["ww2_nazi_germany.txt"],
+    "expected_chunks": [
+      "ww2_nazi_germany.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -832,8 +899,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -843,7 +910,9 @@
     "difficulty": "medium",
     "question": "What was the Pacific War and when did it begin?",
     "reference_answer": "The Pacific War was the theater of World War II fought across the Pacific Ocean and Asia, primarily between the United States and Japan. It began on December 7, 1941, when Japan launched a surprise attack on the U.S. naval base at Pearl Harbor, Hawaii, drawing the United States into World War II. The Pacific War included major campaigns across island chains, the Philippines, and culminated with the atomic bombings of Japan and Japan's surrender in September 1945.",
-    "expected_chunks": ["ww2_pacific_war.txt"],
+    "expected_chunks": [
+      "ww2_pacific_war.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -859,8 +928,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -870,7 +939,9 @@
     "difficulty": "medium",
     "question": "What was the Nuremberg Race Law legislation passed by Nazi Germany in 1935?",
     "reference_answer": "The Nuremberg Laws were antisemitic racial laws enacted in Nazi Germany on September 15, 1935. They consisted of two main laws: the Reich Citizenship Law, which stripped Jewish Germans of their citizenship, and the Law for the Protection of German Blood and German Honour, which prohibited marriage and sexual relations between Jews and non-Jewish Germans. These laws institutionalized racial discrimination and laid the legal groundwork for the eventual persecution and genocide of Jewish people.",
-    "expected_chunks": ["ww2_nazi_germany.txt"],
+    "expected_chunks": [
+      "ww2_nazi_germany.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -885,10 +956,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "Flagged for random spot-check (10% sample)."
   },
   {
     "id": "gd_034",
@@ -897,7 +968,9 @@
     "difficulty": "medium",
     "question": "What was the total estimated death toll of World War II?",
     "reference_answer": "World War II resulted in approximately 70 to 85 million deaths, making it the deadliest conflict in human history. The majority of these deaths—roughly 50 to 55 million—were civilians, killed through combat, genocide, famine, and disease. The Soviet Union suffered the highest national death toll, estimated at 27 million people, while China also suffered between 15 and 20 million deaths.",
-    "expected_chunks": ["ww2_world_war_ii.txt"],
+    "expected_chunks": [
+      "ww2_world_war_ii.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -913,8 +986,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -924,7 +997,9 @@
     "difficulty": "hard",
     "question": "What was Operation Barbarossa, and when was it launched?",
     "reference_answer": "Operation Barbarossa was Nazi Germany's massive invasion of the Soviet Union, launched on June 22, 1941. It was the largest military operation in history, involving over 3.8 million Axis troops advancing on a 2,900-kilometer front. Although the initial advance was rapid and successful, the operation ultimately failed to achieve its goal of defeating the Soviet Union before winter, marking a decisive overextension of German military power and a key turning point in World War II.",
-    "expected_chunks": ["ww2_world_war_ii.txt"],
+    "expected_chunks": [
+      "ww2_world_war_ii.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -940,8 +1015,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -951,7 +1026,9 @@
     "difficulty": "easy",
     "question": "Why did Japan attack Pearl Harbor in December 1941?",
     "reference_answer": "Japan attacked Pearl Harbor on December 7, 1941, primarily to neutralize the U.S. Pacific Fleet and prevent American interference in Japan's planned military expansion across Southeast Asia and the Pacific. Japan sought access to oil and raw materials in Dutch and British colonial territories, and the United States had imposed an oil embargo in retaliation for Japan's occupation of French Indochina. Japanese military planners believed a decisive pre-emptive strike could buy time to consolidate their territorial gains before the U.S. could respond.",
-    "expected_chunks": ["ww2_pacific_war.txt"],
+    "expected_chunks": [
+      "ww2_pacific_war.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -967,8 +1044,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -978,7 +1055,9 @@
     "difficulty": "medium",
     "question": "What factors led to the Nazi Party's rise to power in Germany during the early 1930s?",
     "reference_answer": "The Nazi Party rose to power due to a combination of the Great Depression's devastating economic impact on Germany, widespread resentment of the Treaty of Versailles, political instability of the Weimar Republic, and effective Nazi propaganda. Massive unemployment—peaking at about 30% in 1932—made the population receptive to extremist promises of economic recovery and national restoration. Hitler's appointment as Chancellor in January 1933 followed electoral gains that made the Nazis the largest party in the Reichstag.",
-    "expected_chunks": ["ww2_nazi_germany.txt"],
+    "expected_chunks": [
+      "ww2_nazi_germany.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -994,8 +1073,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1005,7 +1084,9 @@
     "difficulty": "medium",
     "question": "Why was the D-Day invasion strategically significant for the Allied victory in Europe?",
     "reference_answer": "D-Day was strategically significant because it opened a major second front in Western Europe, forcing Germany to fight simultaneously on both the Eastern and Western fronts. The successful Allied landing in Normandy on June 6, 1944, secured a large beachhead that allowed continuous reinforcement of troops and equipment. Within eleven months of the landing, Germany had surrendered unconditionally, demonstrating how the liberation of France and the drive into Germany were directly enabled by the Normandy operation.",
-    "expected_chunks": ["ww2_d_day.txt"],
+    "expected_chunks": [
+      "ww2_d_day.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1020,10 +1101,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item2, item4"
   },
   {
     "id": "gd_039",
@@ -1032,7 +1113,9 @@
     "difficulty": "medium",
     "question": "What caused the German defeat at the Battle of Stalingrad?",
     "reference_answer": "Germany's defeat at Stalingrad resulted from a Soviet encirclement operation codenamed Operation Uranus (November 1942), which surrounded the German 6th Army by breaking through the weaker Romanian and Hungarian flanks. Hitler's refusal to allow a tactical retreat, combined with a failed relief operation and a harsh Russian winter, sealed the 6th Army's fate. The surviving German force of approximately 91,000 soldiers surrendered in February 1943, having suffered catastrophic losses in brutal urban combat.",
-    "expected_chunks": ["ww2_battle_of_stalingrad.txt"],
+    "expected_chunks": [
+      "ww2_battle_of_stalingrad.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1047,10 +1130,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_040",
@@ -1059,7 +1142,9 @@
     "difficulty": "hard",
     "question": "Why did the United States decide to use atomic bombs on Japan rather than pursue a conventional invasion?",
     "reference_answer": "U.S. leaders chose atomic bombs over a conventional invasion primarily because military planners estimated that invading the Japanese home islands (Operation Downfall) could result in hundreds of thousands to over a million Allied casualties, plus even greater Japanese losses. Japan's fierce resistance on Okinawa and Iwo Jima reinforced fears about the cost of invasion. The atomic bombings were intended to force a swift Japanese surrender, and Japan did surrender on August 15, 1945, shortly after the second bomb was dropped on Nagasaki.",
-    "expected_chunks": ["ww2_atomic_bombings_hiroshima_nagasaki.txt"],
+    "expected_chunks": [
+      "ww2_atomic_bombings_hiroshima_nagasaki.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1075,8 +1160,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1086,7 +1171,10 @@
     "difficulty": "hard",
     "question": "How did Nazi ideology create the ideological framework for the Holocaust?",
     "reference_answer": "Nazi ideology combined extreme antisemitism, Social Darwinism, and racial hierarchy theories to define Jewish people as an existential biological threat to the German 'master race.' This ideology, codified in Hitler's Mein Kampf and implemented through state policy from 1933 onward, progressively escalated from discrimination and exclusion to mass murder. The Wannsee Conference in January 1942 formalized the 'Final Solution'—the systematic extermination of European Jewry—showing how ideology directly drove genocidal policy.",
-    "expected_chunks": ["ww2_nazi_germany.txt", "ww2_holocaust.txt"],
+    "expected_chunks": [
+      "ww2_nazi_germany.txt",
+      "ww2_holocaust.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1102,8 +1190,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1113,7 +1201,10 @@
     "difficulty": "medium",
     "question": "How did the Battle of Stalingrad affect the overall Allied strategy for the liberation of Western Europe, including D-Day?",
     "reference_answer": "The Soviet victory at Stalingrad in February 1943 fundamentally altered the war's dynamics by proving that Germany could be defeated on the Eastern Front and forcing Germany onto the strategic defensive. This forced Germany to keep massive forces in the East, reducing its ability to reinforce Western Europe against an Allied invasion. When D-Day occurred on June 6, 1944, Germany faced a true two-front crisis that it could not resolve, contributing directly to the speed of Allied success in France.",
-    "expected_chunks": ["ww2_battle_of_stalingrad.txt", "ww2_d_day.txt"],
+    "expected_chunks": [
+      "ww2_battle_of_stalingrad.txt",
+      "ww2_d_day.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1128,10 +1219,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "Flagged for random spot-check (10% sample)."
   },
   {
     "id": "gd_043",
@@ -1140,7 +1231,10 @@
     "difficulty": "medium",
     "question": "What was the relationship between Nazi Germany's racial ideology and the implementation of the Holocaust?",
     "reference_answer": "Nazi Germany's racial ideology, which classified Jewish people as subhuman and blamed them for Germany's social ills, provided the ideological justification for the Holocaust. State-sponsored antisemitism escalated from the Nuremberg Laws of 1935 through Kristallnacht in 1938 to the mass extermination camps of the Final Solution after 1941. The Holocaust was thus not a spontaneous event but the deliberate outcome of Nazi racial ideology being translated into bureaucratic and industrial-scale murder.",
-    "expected_chunks": ["ww2_nazi_germany.txt", "ww2_holocaust.txt"],
+    "expected_chunks": [
+      "ww2_nazi_germany.txt",
+      "ww2_holocaust.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1155,10 +1249,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_044",
@@ -1167,7 +1261,10 @@
     "difficulty": "hard",
     "question": "How did the Pacific War's conclusion via atomic bombings differ from the European theater's conclusion, and what were the geopolitical consequences?",
     "reference_answer": "The European theater ended with a conventional Allied military defeat of Germany culminating in Germany's unconditional surrender on May 8, 1945, following a land invasion from east and west. The Pacific War ended through the unprecedented use of atomic weapons on Hiroshima and Nagasaki, prompting Japan's sudden surrender on August 15, 1945, without a ground invasion. This distinction had major geopolitical consequences: the Soviet Union had time to declare war on Japan and occupy parts of Asia, shaping Cold War divisions, while U.S. atomic supremacy redefined global power dynamics.",
-    "expected_chunks": ["ww2_pacific_war.txt", "ww2_atomic_bombings_hiroshima_nagasaki.txt"],
+    "expected_chunks": [
+      "ww2_pacific_war.txt",
+      "ww2_atomic_bombings_hiroshima_nagasaki.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1183,8 +1280,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1194,7 +1291,10 @@
     "difficulty": "hard",
     "question": "How did the Holocaust's industrial scale reflect the broader administrative and technological capacity of the Nazi German state?",
     "reference_answer": "The Holocaust's industrial scale was made possible by the full administrative, bureaucratic, and technological apparatus of the Nazi German state. Railways managed by the Reichsbahn transported victims from across Europe to extermination camps, while the SS administered the camp system and the German civil service handled the logistics of property confiscation and deportation. The Zyklon B gas chambers at Auschwitz represented the application of German industrial and chemical engineering to mass murder, reflecting how total state capacity was channeled toward genocide.",
-    "expected_chunks": ["ww2_holocaust.txt", "ww2_nazi_germany.txt"],
+    "expected_chunks": [
+      "ww2_holocaust.txt",
+      "ww2_nazi_germany.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1210,8 +1310,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1221,7 +1321,10 @@
     "difficulty": "medium",
     "question": "How did the Allied strategy in the Pacific War compare to the strategy used in the European theater of World War II?",
     "reference_answer": "In the Pacific, the Allies pursued an 'island hopping' strategy, selectively capturing key islands to establish air bases while bypassing heavily fortified Japanese positions, ultimately approaching the Japanese home islands. In Europe, the strategy was more conventional, involving a massive ground invasion from the west (following D-Day in June 1944) combined with sustained Soviet pressure from the east. Both strategies ultimately sought to bring the war to the enemy's homeland, but the Pacific approach relied more heavily on naval and air power given the vast oceanic distances involved.",
-    "expected_chunks": ["ww2_pacific_war.txt", "ww2_d_day.txt"],
+    "expected_chunks": [
+      "ww2_pacific_war.txt",
+      "ww2_d_day.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1237,8 +1340,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1248,7 +1351,10 @@
     "difficulty": "medium",
     "question": "How did civilian deaths during the Holocaust compare to military deaths suffered in the Battle of Stalingrad?",
     "reference_answer": "The Holocaust resulted in approximately six million Jewish deaths and five to six million additional civilian victims (Roma, disabled people, Slavic peoples, and others), totaling over eleven million victims over several years of systematic extermination. The Battle of Stalingrad, fought from August 1942 to February 1943, resulted in approximately 800,000 Axis casualties and approximately 1.1 million Soviet casualties, with most being military personnel. While Stalingrad was one of the bloodiest individual battles in history, the Holocaust's total death toll was an order of magnitude greater.",
-    "expected_chunks": ["ww2_holocaust.txt", "ww2_battle_of_stalingrad.txt"],
+    "expected_chunks": [
+      "ww2_holocaust.txt",
+      "ww2_battle_of_stalingrad.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1264,8 +1370,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1290,10 +1396,10 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item2, item3, item4"
   },
   {
     "id": "gd_049",
@@ -1317,10 +1423,10 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4"
   },
   {
     "id": "gd_050",
@@ -1329,7 +1435,9 @@
     "difficulty": "medium",
     "question": "Was dropping the atomic bombs on Japan morally justified?",
     "reference_answer": "This question is ambiguous because it involves a contested moral and ethical judgment for which historians, ethicists, and policymakers have held sharply divergent views for over 75 years. Proponents argue it ended the war quickly and saved lives that a conventional invasion would have cost; opponents argue it constituted a war crime targeting civilian populations. Any definitive answer depends on the moral framework applied and is beyond the scope of a factual knowledge base.",
-    "expected_chunks": ["ww2_atomic_bombings_hiroshima_nagasaki.txt"],
+    "expected_chunks": [
+      "ww2_atomic_bombings_hiroshima_nagasaki.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1345,9 +1453,9 @@
       "recall_no_gaps": true
     },
     "needs_human_review": true,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": "Morally contested question; chatbot should present multiple perspectives without asserting a definitive moral verdict."
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item1, item4"
   },
   {
     "id": "gd_051",
@@ -1356,7 +1464,9 @@
     "difficulty": "easy",
     "question": "When and where was Napoleon Bonaparte born?",
     "reference_answer": "Napoleon Bonaparte was born on August 15, 1769, in Ajaccio, on the island of Corsica. Corsica had been transferred from the Republic of Genoa to France just the year before, in 1768, making Napoleon a French citizen by birth. He went on to become Emperor of the French in 1804 and is widely regarded as one of the greatest military commanders in history.",
-    "expected_chunks": ["figures_napoleon_bonaparte.txt"],
+    "expected_chunks": [
+      "figures_napoleon_bonaparte.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1372,8 +1482,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1383,7 +1493,9 @@
     "difficulty": "easy",
     "question": "To which political party did Winston Churchill belong during World War II?",
     "reference_answer": "Winston Churchill was a member of the Conservative Party during World War II. He became Prime Minister of the United Kingdom on May 10, 1940, the same day Germany launched its invasion of France and the Low Countries. He led Britain throughout most of the war until the Conservative Party's defeat in the July 1945 general election.",
-    "expected_chunks": ["figures_winston_churchill.txt"],
+    "expected_chunks": [
+      "figures_winston_churchill.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1399,8 +1511,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1410,7 +1522,9 @@
     "difficulty": "easy",
     "question": "In what year did Nelson Mandela become President of South Africa?",
     "reference_answer": "Nelson Mandela became President of South Africa in 1994, following the country's first fully democratic elections held on April 27, 1994. He served as president until 1999. His election marked the end of the apartheid era and the beginning of a multi-racial democratic government.",
-    "expected_chunks": ["figures_nelson_mandela.txt"],
+    "expected_chunks": [
+      "figures_nelson_mandela.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1426,8 +1540,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1437,7 +1551,9 @@
     "difficulty": "easy",
     "question": "What was Mahatma Gandhi's full birth name?",
     "reference_answer": "Mahatma Gandhi's full birth name was Mohandas Karamchand Gandhi. He was born on October 2, 1869, in Porbandar, in present-day Gujarat, India. The honorific 'Mahatma,' meaning 'great soul,' was bestowed upon him and became inseparable from his identity in public discourse.",
-    "expected_chunks": ["figures_mahatma_gandhi.txt"],
+    "expected_chunks": [
+      "figures_mahatma_gandhi.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1453,8 +1569,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1464,7 +1580,9 @@
     "difficulty": "easy",
     "question": "In what year did Vladimir Lenin die, and what was the cause?",
     "reference_answer": "Vladimir Lenin died on January 21, 1924, at the age of 53. His death was caused by complications from a series of strokes, the first of which he suffered in May 1922. He had led the Bolshevik Revolution in 1917 and served as the head of Soviet Russia from 1917 until his death.",
-    "expected_chunks": ["figures_vladimir_lenin.txt"],
+    "expected_chunks": [
+      "figures_vladimir_lenin.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1480,8 +1598,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1491,7 +1609,9 @@
     "difficulty": "easy",
     "question": "What official title did Adolf Hitler hold as leader of Nazi Germany?",
     "reference_answer": "Adolf Hitler held the title of 'Führer und Reichskanzler' (Leader and Reich Chancellor). He became Chancellor on January 30, 1933, and after the death of President Paul von Hindenburg in August 1934, he merged the offices of Chancellor and President, declaring himself Führer. He held this position until his suicide on April 30, 1945.",
-    "expected_chunks": ["figures_adolf_hitler.txt"],
+    "expected_chunks": [
+      "figures_adolf_hitler.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1507,8 +1627,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1518,7 +1638,9 @@
     "difficulty": "easy",
     "question": "Where was Joseph Stalin born, and in what country is that location today?",
     "reference_answer": "Joseph Stalin was born on December 18, 1878, in Gori, a town in the Tiflis Governorate of the Russian Empire, which is located in present-day Georgia. He rose through the ranks of the Bolshevik Party and became the undisputed leader of the Soviet Union following Lenin's death in 1924. He ruled the USSR until his own death in March 1953.",
-    "expected_chunks": ["figures_joseph_stalin.txt"],
+    "expected_chunks": [
+      "figures_joseph_stalin.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1533,10 +1655,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item2"
   },
   {
     "id": "gd_058",
@@ -1545,7 +1667,9 @@
     "difficulty": "easy",
     "question": "How many years did Nelson Mandela spend in prison, and on which island was he primarily held?",
     "reference_answer": "Nelson Mandela spent 27 years in prison, from 1964 to 1990. He was primarily held on Robben Island, off the coast of Cape Town, where he was confined to a small cell and forced to perform hard labor. His release on February 11, 1990, became a pivotal moment in the dismantling of South Africa's apartheid system.",
-    "expected_chunks": ["figures_nelson_mandela.txt"],
+    "expected_chunks": [
+      "figures_nelson_mandela.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1560,10 +1684,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item2"
   },
   {
     "id": "gd_059",
@@ -1572,7 +1696,9 @@
     "difficulty": "medium",
     "question": "Why was Napoleon Bonaparte exiled to the island of Elba in 1814?",
     "reference_answer": "Napoleon was exiled to Elba following his military defeats in the War of the Sixth Coalition, which culminated in the fall of Paris in March 1814 and his forced abdication. The Allied powers — Austria, Prussia, Russia, and Britain — determined he could no longer remain on the French throne. Under the Treaty of Fontainebleau, he was allowed to retain the title of Emperor but was stripped of control over France and given sovereignty over the small island of Elba off the coast of Italy.",
-    "expected_chunks": ["figures_napoleon_bonaparte.txt"],
+    "expected_chunks": [
+      "figures_napoleon_bonaparte.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1588,8 +1714,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1599,7 +1725,9 @@
     "difficulty": "medium",
     "question": "What experiences and influences led Mahatma Gandhi to adopt the philosophy of nonviolent resistance?",
     "reference_answer": "Gandhi's philosophy of nonviolent resistance, or Satyagraha, was forged through his experiences of racial discrimination while working as a lawyer in South Africa from 1893 to 1914. He was deeply influenced by the writings of Leo Tolstoy, Henry David Thoreau's 'Civil Disobedience,' and the Bhagavad Gita, which together convinced him that moral and spiritual force could overcome injustice without recourse to violence. These principles became the foundation of both his campaigns for Indian rights in South Africa and his later leadership of the Indian independence movement.",
-    "expected_chunks": ["figures_mahatma_gandhi.txt"],
+    "expected_chunks": [
+      "figures_mahatma_gandhi.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1614,10 +1742,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "Flagged for random spot-check (10% sample)."
   },
   {
     "id": "gd_061",
@@ -1626,7 +1754,9 @@
     "difficulty": "medium",
     "question": "Why did Joseph Stalin implement forced collectivization of agriculture in the Soviet Union?",
     "reference_answer": "Stalin launched forced collectivization beginning in 1929 primarily to consolidate state control over agricultural production and to extract surplus grain to fund rapid industrialization under the Five-Year Plans. He also aimed to eliminate the kulak class (prosperous peasants) whom he viewed as a threat to socialist transformation. The policy resulted in catastrophic famines, most notably the Holodomor in Ukraine in 1932–1933, and the deaths of millions of people.",
-    "expected_chunks": ["figures_joseph_stalin.txt"],
+    "expected_chunks": [
+      "figures_joseph_stalin.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1642,8 +1772,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1653,7 +1783,9 @@
     "difficulty": "medium",
     "question": "What factors caused Adolf Hitler's rise to power in Germany?",
     "reference_answer": "Hitler's rise to power resulted from a combination of Germany's severe economic devastation following the Great Depression, mass unemployment, and widespread resentment over the punitive terms of the Treaty of Versailles. The political instability of the Weimar Republic, combined with effective Nazi propaganda and Hitler's oratorical skills, allowed the NSDAP to become the largest party in the Reichstag. President Paul von Hindenburg appointed Hitler as Chancellor on January 30, 1933, after which Hitler used the Reichstag Fire and the Enabling Act of March 1933 to consolidate dictatorial power.",
-    "expected_chunks": ["figures_adolf_hitler.txt"],
+    "expected_chunks": [
+      "figures_adolf_hitler.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1668,10 +1800,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_063",
@@ -1680,7 +1812,9 @@
     "difficulty": "medium",
     "question": "Why did Winston Churchill and the Conservative Party lose the 1945 British general election despite winning World War II?",
     "reference_answer": "Despite Churchill's celebrated wartime leadership, British voters chose Clement Attlee's Labour Party in a landslide in July 1945 because they prioritized postwar domestic reform over continuity of wartime leadership. Many citizens wanted sweeping social changes, including the creation of a National Health Service, expanded unemployment benefits, and nationalization of key industries — policies Labour championed but the Conservatives opposed. The electorate widely believed that Churchill, as a war leader, was not the right figure to address the social and economic reconstruction needs of postwar Britain.",
-    "expected_chunks": ["figures_winston_churchill.txt"],
+    "expected_chunks": [
+      "figures_winston_churchill.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1695,10 +1829,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_064",
@@ -1707,7 +1841,9 @@
     "difficulty": "medium",
     "question": "Why was Vladimir Lenin repeatedly forced into exile before the Russian Revolution of 1917?",
     "reference_answer": "Lenin was forced into exile by the tsarist government because of his leadership of the Bolshevik faction of the Russian Social Democratic Labour Party and his revolutionary organizing activities. He was first arrested and exiled to Siberia from 1897 to 1900, and subsequently spent years in Western Europe — including in Switzerland, Germany, and France — continuing to write and organize from abroad. He returned to Russia in April 1917 aboard the famous 'sealed train' following the February Revolution that toppled Tsar Nicholas II.",
-    "expected_chunks": ["figures_vladimir_lenin.txt"],
+    "expected_chunks": [
+      "figures_vladimir_lenin.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1722,10 +1858,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item4"
   },
   {
     "id": "gd_065",
@@ -1734,7 +1870,10 @@
     "difficulty": "medium",
     "question": "How did Napoleon Bonaparte's final defeat at Waterloo in 1815 connect to the restructuring of Europe at the Congress of Vienna?",
     "reference_answer": "Napoleon's defeat at the Battle of Waterloo in June 1815 permanently ended his Hundred Days campaign and his rule as Emperor, allowing the Allied powers to conclude the work of the Congress of Vienna, which had been meeting since September 1814. The Congress redrew the map of Europe to restore the balance of power disrupted by over two decades of French Revolutionary and Napoleonic wars, restoring many pre-Napoleonic monarchies and creating a new European order. The Final Act of the Congress, signed just before Waterloo in June 1815, established the Concert of Europe system intended to prevent any single power from achieving the dominance Napoleon had wielded.",
-    "expected_chunks": ["figures_napoleon_bonaparte.txt", "revolutions_french_revolution.txt"],
+    "expected_chunks": [
+      "figures_napoleon_bonaparte.txt",
+      "revolutions_french_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1749,10 +1888,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1"
   },
   {
     "id": "gd_066",
@@ -1761,7 +1900,10 @@
     "difficulty": "hard",
     "question": "How did both Vladimir Lenin and Mahatma Gandhi use periods of forced exile or imprisonment to develop their political strategies?",
     "reference_answer": "Both Lenin and Gandhi transformed periods of enforced separation into crucibles for ideological development. Lenin spent years in Siberian exile and then Western Europe, using the time to write foundational Marxist-Leninist texts, establish the Iskra newspaper, and organize the Bolshevik Party's structure from abroad. Gandhi, during his years in South Africa and later imprisonments in India, refined and documented his Satyagraha philosophy, wrote extensively, and organized structured nonviolent campaigns, turning each incarceration into a platform that amplified his moral authority and international profile.",
-    "expected_chunks": ["figures_vladimir_lenin.txt", "figures_mahatma_gandhi.txt"],
+    "expected_chunks": [
+      "figures_vladimir_lenin.txt",
+      "figures_mahatma_gandhi.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1777,8 +1919,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1788,7 +1930,10 @@
     "difficulty": "hard",
     "question": "In what ways did Joseph Stalin's and Adolf Hitler's regimes both employ totalitarian methods that led to mass atrocities, despite being ideologically opposed?",
     "reference_answer": "Although Stalin's Soviet communism and Hitler's National Socialism were bitter ideological rivals, both regimes employed strikingly similar totalitarian instruments: secret police (the NKVD and the Gestapo respectively), propaganda organs, cult of personality, one-party states, and systematic suppression of dissent. Stalin's purges, Gulag labor camp network, and engineered famines are estimated to have caused the deaths of millions, while Hitler's regime carried out the Holocaust, killing approximately 6 million Jews and millions of others, as well as broader war crimes totaling roughly 17 million civilian deaths. Both leaders justified mass murder through utopian ideological frameworks — racial purity for Hitler and class struggle for Stalin — that dehumanized targeted groups.",
-    "expected_chunks": ["figures_joseph_stalin.txt", "figures_adolf_hitler.txt"],
+    "expected_chunks": [
+      "figures_joseph_stalin.txt",
+      "figures_adolf_hitler.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1803,10 +1948,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item4"
   },
   {
     "id": "gd_068",
@@ -1815,7 +1960,10 @@
     "difficulty": "medium",
     "question": "How did the leadership styles of Winston Churchill and Joseph Stalin differ during World War II?",
     "reference_answer": "Winston Churchill led within a democratic parliamentary framework, working with a War Cabinet, maintaining public communication through speeches and broadcasts, and remaining accountable to Parliament, while Stalin exercised absolute dictatorial control and made unilateral military and political decisions backed by terror. Churchill relied on oratory, persuasion, and coalition-building among Allied leaders, whereas Stalin used fear, purges of military commanders, and direct command authority to enforce compliance. Despite these contrasts, both men proved tenacious wartime leaders who refused to accept defeat during the most critical periods of the war.",
-    "expected_chunks": ["figures_winston_churchill.txt", "figures_joseph_stalin.txt"],
+    "expected_chunks": [
+      "figures_winston_churchill.txt",
+      "figures_joseph_stalin.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1831,8 +1979,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1842,7 +1990,10 @@
     "difficulty": "medium",
     "question": "How did the methods used by Mahatma Gandhi and Nelson Mandela to achieve political liberation differ?",
     "reference_answer": "Both Gandhi and Mandela sought to dismantle systems of racial and colonial oppression, but their tactical approaches diverged significantly. Gandhi consistently and uncompromisingly advocated for nonviolent civil disobedience as the sole legitimate strategy throughout his campaigns in South Africa and India. Mandela, while initially inspired by nonviolent methods, co-founded Umkhonto we Sizwe in 1961 — the armed wing of the ANC — after concluding that nonviolence alone was insufficient against the apartheid state; however, after his release in 1990, he pivoted to negotiation and reconciliation, ultimately achieving a peaceful democratic transition.",
-    "expected_chunks": ["figures_mahatma_gandhi.txt", "figures_nelson_mandela.txt"],
+    "expected_chunks": [
+      "figures_mahatma_gandhi.txt",
+      "figures_nelson_mandela.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1857,10 +2008,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "Flagged for random spot-check (10% sample)."
   },
   {
     "id": "gd_070",
@@ -1869,7 +2020,10 @@
     "difficulty": "hard",
     "question": "Compare Napoleon Bonaparte's 1812 invasion of Russia and Adolf Hitler's 1941 Operation Barbarossa — what common factors led to both failures?",
     "reference_answer": "Both Napoleon's 1812 Grande Armée invasion and Hitler's 1941 Operation Barbarossa began with rapid early advances but ultimately collapsed due to a striking set of shared vulnerabilities: catastrophically overextended supply lines, the devastating Russian winter for which neither army was adequately prepared, and the resilience and depth of Russian defensive capacity. Napoleon captured Moscow in September 1812 but found it abandoned and burning; his subsequent retreat cost his army over 400,000 men. Hitler's forces reached the outskirts of Moscow and Leningrad but were halted and then rolled back, with the turning point coming at the Battle of Stalingrad in 1942–1943, which ended German offensive capability in the east.",
-    "expected_chunks": ["figures_napoleon_bonaparte.txt", "figures_adolf_hitler.txt"],
+    "expected_chunks": [
+      "figures_napoleon_bonaparte.txt",
+      "figures_adolf_hitler.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1885,8 +2039,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1911,10 +2065,10 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1"
   },
   {
     "id": "gd_072",
@@ -1939,8 +2093,8 @@
       "recall_no_gaps": false
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -1950,7 +2104,11 @@
     "difficulty": "medium",
     "question": "Who was the greatest political leader of the 20th century?",
     "reference_answer": "This question is inherently subjective and cannot be answered definitively, as 'greatness' in political leadership depends on the criteria applied — moral integrity, military success, economic transformation, human rights, or longevity of impact. Different historians and traditions would nominate figures such as Winston Churchill, Franklin D. Roosevelt, Nelson Mandela, Mahatma Gandhi, or others depending on values and perspective. Any answer reflects a value judgment rather than an objective historical fact, and the knowledge base does not rank or adjudicate such normative claims.",
-    "expected_chunks": ["figures_winston_churchill.txt", "figures_nelson_mandela.txt", "figures_mahatma_gandhi.txt"],
+    "expected_chunks": [
+      "figures_winston_churchill.txt",
+      "figures_nelson_mandela.txt",
+      "figures_mahatma_gandhi.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1965,10 +2123,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": "Ambiguous value judgment; correct response should acknowledge subjectivity rather than nominate a single figure."
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": ""
   },
   {
     "id": "gd_074",
@@ -1977,7 +2135,9 @@
     "difficulty": "medium",
     "question": "Was Napoleon Bonaparte ultimately a hero or a villain in history?",
     "reference_answer": "Whether Napoleon was a hero or a villain is a deeply contested and inherently subjective question that resists a single factual answer. Supporters credit him with codifying Enlightenment legal principles through the Napoleonic Code, modernizing European administrative and educational institutions, and spreading revolutionary ideals of equality and meritocracy. Critics emphasize the millions of lives lost in the Napoleonic Wars, his reimposition of slavery in French colonies in 1802, and his authoritarian suppression of republican freedoms; the knowledge base documents these dual legacies without rendering a moral verdict.",
-    "expected_chunks": ["figures_napoleon_bonaparte.txt"],
+    "expected_chunks": [
+      "figures_napoleon_bonaparte.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -1992,10 +2152,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": "Subjective value judgment; model should present both perspectives and acknowledge that no definitive answer exists."
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": ""
   },
   {
     "id": "gd_075",
@@ -2004,7 +2164,10 @@
     "difficulty": "hard",
     "question": "Was Joseph Stalin a more effective leader than Adolf Hitler?",
     "reference_answer": "This question is ambiguous because 'effectiveness' in leadership is undefined and can be measured by entirely different criteria — military outcomes, economic transformation, longevity of rule, or human welfare — each of which yields a different answer. On some metrics Stalin appears 'more effective': he ruled the Soviet Union for nearly three decades, oversaw rapid industrialization, and his nation was on the victorious side of World War II, while Hitler's regime lasted only 12 years and ended in total military defeat. However, both leaders were responsible for catastrophic mass atrocities, making any comparison of 'effectiveness' ethically fraught and analytically contested; the knowledge base presents factual records of both figures without ranking their leadership.",
-    "expected_chunks": ["figures_joseph_stalin.txt", "figures_adolf_hitler.txt"],
+    "expected_chunks": [
+      "figures_joseph_stalin.txt",
+      "figures_adolf_hitler.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2019,10 +2182,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": "Comparative ambiguous question involving two perpetrators of mass atrocities; model must not render a normative verdict and must flag the ethical complexity."
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": ""
   },
   {
     "id": "gd_076",
@@ -2031,7 +2194,9 @@
     "difficulty": "easy",
     "question": "In what year did the French Revolution begin, and what event is commonly cited as its symbolic starting point?",
     "reference_answer": "The French Revolution began in 1789, with the storming of the Bastille on July 14, 1789, commonly cited as its symbolic starting point. The Bastille was a royal fortress and prison in Paris whose fall represented the collapse of royal authority and the rise of popular revolutionary power. July 14 is still celebrated as Bastille Day, France's national holiday.",
-    "expected_chunks": ["revolutions_french_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_french_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2047,8 +2212,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2058,7 +2223,9 @@
     "difficulty": "easy",
     "question": "In what year was the American Declaration of Independence adopted, and who was its primary author?",
     "reference_answer": "The American Declaration of Independence was adopted on July 4, 1776, by the Second Continental Congress. Its primary author was Thomas Jefferson, though it was revised by a committee that included Benjamin Franklin and John Adams. The declaration formally announced the thirteen American colonies' separation from British rule and articulated Enlightenment principles of natural rights and self-governance.",
-    "expected_chunks": ["revolutions_american_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_american_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2074,8 +2241,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2085,7 +2252,9 @@
     "difficulty": "easy",
     "question": "What were the two main phases of the Russian Revolution of 1917, and in which months did they occur?",
     "reference_answer": "The Russian Revolution of 1917 unfolded in two distinct phases: the February Revolution, which occurred in February–March 1917 (using the Gregorian calendar) and resulted in the abdication of Tsar Nicholas II and the establishment of a Provisional Government; and the October Revolution, which occurred in October–November 1917 and was led by Lenin's Bolsheviks, who overthrew the Provisional Government and established Soviet rule. The discrepancy in naming reflects the Old Style Julian calendar then in use in Russia.",
-    "expected_chunks": ["revolutions_russian_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_russian_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2101,8 +2270,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2112,7 +2281,9 @@
     "difficulty": "easy",
     "question": "When did the Haitian Revolution begin and end, and what was its principal outcome?",
     "reference_answer": "The Haitian Revolution began in August 1791 and concluded in January 1804 with the declaration of Haitian independence. It was the only slave revolt in history to successfully result in the founding of a new nation, making Haiti the first Black republic and the first country in the Western Hemisphere to abolish slavery permanently. The revolution ended French colonial rule and established the independent nation of Haiti.",
-    "expected_chunks": ["revolutions_haitian_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_haitian_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2128,8 +2299,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2139,7 +2310,9 @@
     "difficulty": "medium",
     "question": "In what year did Fidel Castro's revolutionary forces take power in Cuba, and who was the leader they overthrew?",
     "reference_answer": "Fidel Castro's revolutionary forces took power in Cuba on January 1, 1959, when the regime of President Fulgencio Batista collapsed and Batista fled the country. Castro had led a guerrilla campaign from the Sierra Maestra mountains since 1956, building popular support before his forces marched into Havana. The Cuban Revolution led to the establishment of a socialist state aligned with the Soviet Union, transforming hemispheric politics during the Cold War.",
-    "expected_chunks": ["revolutions_cuban_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_cuban_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2155,8 +2328,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2166,7 +2339,9 @@
     "difficulty": "medium",
     "question": "On what date did India gain independence from Britain, and who became its first Prime Minister?",
     "reference_answer": "India gained independence from Britain on August 15, 1947. Jawaharlal Nehru became India's first Prime Minister, delivering his famous 'Tryst with Destiny' speech at midnight as the transfer of power took place. Independence was accompanied by the Partition of British India into two separate nations, India and Pakistan, which triggered massive population displacements and communal violence.",
-    "expected_chunks": ["revolutions_indian_independence.txt"],
+    "expected_chunks": [
+      "revolutions_indian_independence.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2182,8 +2357,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2193,7 +2368,9 @@
     "difficulty": "medium",
     "question": "When did the Chinese Communist Revolution end, and what government did Mao Zedong proclaim?",
     "reference_answer": "The Chinese Communist Revolution concluded on October 1, 1949, when Mao Zedong proclaimed the establishment of the People's Republic of China from Tiananmen Square in Beijing. The revolution ended a civil war between the Chinese Communist Party and the Nationalist forces (Kuomintang) of Chiang Kai-shek, who retreated to Taiwan. The founding of the PRC marked the beginning of Communist Party rule in mainland China, which continues to the present day.",
-    "expected_chunks": ["revolutions_chinese_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_chinese_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2209,8 +2386,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2220,7 +2397,9 @@
     "difficulty": "medium",
     "question": "What document issued during the French Revolution proclaimed the principles of liberty, equality, and fraternity?",
     "reference_answer": "The Declaration of the Rights of Man and of the Citizen, adopted by the National Constituent Assembly on August 26, 1789, proclaimed the Enlightenment principles of liberty, equality, and the sovereignty of the people that underpinned the French Revolution. The document asserted that all men are born free and equal in rights and that the source of all sovereignty resides in the nation. It became one of the foundational texts of modern liberal democracy and human rights discourse.",
-    "expected_chunks": ["revolutions_french_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_french_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2235,10 +2414,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item4, item5"
   },
   {
     "id": "gd_084",
@@ -2247,7 +2426,9 @@
     "difficulty": "hard",
     "question": "What was the Treaty of Brest-Litovsk, when was it signed, and what territories did Russia cede?",
     "reference_answer": "The Treaty of Brest-Litovsk was a separate peace agreement signed on March 3, 1918, between Soviet Russia and the Central Powers (Germany, Austria-Hungary, Bulgaria, and the Ottoman Empire), ending Russian participation in World War I following the Bolshevik Revolution. Under its terms, Russia ceded vast territories including Finland, Estonia, Latvia, Lithuania, Poland, Ukraine, and parts of the Caucasus, losing roughly one-third of its European territory and population. The treaty was annulled in November 1918 following Germany's defeat in World War I.",
-    "expected_chunks": ["revolutions_russian_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_russian_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2263,8 +2444,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2274,7 +2455,9 @@
     "difficulty": "medium",
     "question": "What were the primary causes of the French Revolution of 1789?",
     "reference_answer": "The French Revolution was triggered by a convergence of financial crisis, social inequality, and political dysfunction. France was effectively bankrupt from its costly involvement in the Seven Years' War and the American Revolutionary War, and King Louis XVI's government struggled to implement tax reforms against resistance from the privileged nobility and clergy. The rigid Ancien Régime's Three Estates system left the commoners (Third Estate) bearing an unjust tax burden while being excluded from meaningful political representation, and the Enlightenment ideas of Voltaire, Rousseau, and Montesquieu had galvanized public demand for liberty and equality.",
-    "expected_chunks": ["revolutions_french_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_french_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2290,8 +2473,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2301,7 +2484,9 @@
     "difficulty": "medium",
     "question": "What were the main causes that led the American colonies to revolt against British rule?",
     "reference_answer": "The American Revolution was primarily driven by colonial resentment of British taxation policies imposed without colonial representation in Parliament, encapsulated in the rallying cry 'no taxation without representation.' Key flashpoints included the Stamp Act of 1765, the Townshend Acts of 1767, and the Boston Massacre of 1770, followed by the Boston Tea Party in 1773 in response to the Tea Act. The British government's coercive response through the Intolerable Acts of 1774 united the colonies and drove them toward the First Continental Congress and ultimately armed resistance beginning in April 1775.",
-    "expected_chunks": ["revolutions_american_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_american_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2316,10 +2501,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_087",
@@ -2328,7 +2513,9 @@
     "difficulty": "medium",
     "question": "What conditions in Russia caused the February Revolution of 1917 that led to the abdication of Tsar Nicholas II?",
     "reference_answer": "The February Revolution of 1917 was precipitated by the devastating human and economic toll of World War I, which had cost Russia millions of casualties, created severe food and fuel shortages in Russian cities, and generated widespread anti-war sentiment. The tsarist government's catastrophic military mismanagement, the political influence of Rasputin over the royal family, and the tsar's personal command of the army while leaving the government in disarray destroyed the regime's legitimacy. Mass strikes and bread riots in Petrograd in late February 1917 escalated rapidly when the garrison troops refused to fire on protesters, leaving Nicholas II without military support and forcing his abdication on March 2, 1917.",
-    "expected_chunks": ["revolutions_russian_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_russian_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2344,8 +2531,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2355,7 +2542,9 @@
     "difficulty": "medium",
     "question": "What caused the enslaved population of Saint-Domingue to launch the Haitian Revolution in 1791?",
     "reference_answer": "The Haitian Revolution was sparked by the extreme brutality of the plantation slavery system in Saint-Domingue (present-day Haiti), which was one of the most profitable but also most brutal colonies in the Caribbean, where enslaved Africans vastly outnumbered their French colonizers. The ideals of liberty and equality emanating from the French Revolution of 1789 created a contradictory situation where France proclaimed universal rights while maintaining slavery, inspiring both free people of color and enslaved people to demand their rights. The immediate trigger was a Vodou ceremony at Bois Caïman in August 1791 that served as the organizing rallying point for a massive uprising led initially by Dutty Boukman.",
-    "expected_chunks": ["revolutions_haitian_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_haitian_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2371,8 +2560,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2382,7 +2571,9 @@
     "difficulty": "hard",
     "question": "What conditions in Cuba during the 1950s enabled Fidel Castro's revolutionary movement to succeed in overthrowing Batista?",
     "reference_answer": "Castro's revolution succeeded due to a convergence of deep social grievances and the political weakness of Batista's regime. The Batista government, which came to power through a military coup in 1952, was widely perceived as corrupt and beholden to American business interests and organized crime, while the majority of Cubans — particularly rural peasants — remained impoverished and without land. Castro's 26th of July Movement built a broad coalition of peasants, students, and urban workers by promising land reform, social equity, and national sovereignty, and Batista's brutal repression alienated even former supporters and ultimately led the United States to impose an arms embargo in 1958, fatally undermining his military capability.",
-    "expected_chunks": ["revolutions_cuban_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_cuban_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2398,8 +2589,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2409,7 +2600,9 @@
     "difficulty": "hard",
     "question": "What factors allowed the Chinese Communist Party to defeat the Nationalist Kuomintang in the Chinese Civil War and establish the People's Republic of China in 1949?",
     "reference_answer": "The CCP's victory over the Kuomintang resulted from a combination of military, political, and social factors accumulated over decades. The Nationalist government under Chiang Kai-shek was gravely weakened by rampant corruption, runaway hyperinflation, and military exhaustion from both the Second Sino-Japanese War (1937–1945) and the earlier resistance against Japanese invasion. The CCP, under Mao Zedong, built enormous popular support among China's vast rural peasant population by promising land redistribution and social reform, and its People's Liberation Army proved tactically superior during the final civil war phase of 1946–1949. American aid to the Nationalists proved insufficient to overcome the Kuomintang's political collapse and the CCP's organizational discipline.",
-    "expected_chunks": ["revolutions_chinese_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_chinese_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2424,10 +2617,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_091",
@@ -2436,7 +2629,10 @@
     "difficulty": "medium",
     "question": "How did the ideals of the French Revolution of 1789 directly influence the ideology and course of the Russian Revolution of 1917?",
     "reference_answer": "The French Revolution's core ideals — popular sovereignty, the abolition of hereditary privilege, and the right of the people to overthrow an unjust government — provided an intellectual template that Russian revolutionary thinkers explicitly referenced. Russian Marxists such as Lenin studied the French Revolution's phases, including the Jacobin Reign of Terror, as a historical precedent for how a revolutionary vanguard might seize and consolidate power against counterrevolutionary forces. The Bolsheviks consciously drew on French Revolutionary symbolism and vocabulary, and debates within the Russian revolutionary movement about the pace and stages of revolution were frequently framed in reference to what had succeeded or failed in France between 1789 and 1799.",
-    "expected_chunks": ["revolutions_french_revolution.txt", "revolutions_russian_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_french_revolution.txt",
+      "revolutions_russian_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2452,8 +2648,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2463,7 +2659,10 @@
     "difficulty": "medium",
     "question": "How did the success of the American Revolution inspire and influence the Indian independence movement?",
     "reference_answer": "The American Revolution demonstrated that a colonial people could successfully organize, fight, and win independence from a powerful European empire — a precedent that Indian independence leaders explicitly cited. Indian nationalists, including those in the Indian National Congress, drew on American arguments about natural rights, self-determination, and the illegitimacy of taxation without representation when framing their own demands for self-rule from Britain. Figures like Bal Gangadhar Tilak and later Gandhi referenced American ideals of liberty and the legitimacy of popular resistance, while the American model of constitutional self-governance provided a template for the democratic republic India sought to establish after independence in 1947.",
-    "expected_chunks": ["revolutions_american_revolution.txt", "revolutions_indian_independence.txt"],
+    "expected_chunks": [
+      "revolutions_american_revolution.txt",
+      "revolutions_indian_independence.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2479,8 +2678,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2490,7 +2689,10 @@
     "difficulty": "hard",
     "question": "How did the Haitian Revolution both draw upon and ultimately challenge the ideals proclaimed by the French Revolution?",
     "reference_answer": "The Haitian Revolution was directly catalyzed by the ideals of liberty, equality, and universal rights proclaimed by the French Revolution of 1789, with revolutionary leaders such as Toussaint Louverture invoking France's own Declaration of the Rights of Man to demand freedom for the enslaved population of Saint-Domingue. However, the Haitian Revolution also exposed the fundamental hypocrisy of the French Revolution's universalist claims, since France continued to defend plantation slavery in its Caribbean colonies for economic reasons even while proclaiming universal human rights. When Napoleon Bonaparte dispatched an expedition in 1802 to restore slavery and French control, Haitian revolutionaries fought and defeated the French army, founding an independent republic in 1804 that went far beyond what the French Revolution was willing to deliver.",
-    "expected_chunks": ["revolutions_haitian_revolution.txt", "revolutions_french_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_haitian_revolution.txt",
+      "revolutions_french_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2505,10 +2707,10 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item4"
   },
   {
     "id": "gd_094",
@@ -2517,7 +2719,10 @@
     "difficulty": "hard",
     "question": "In what ways did the Russian Revolution of 1917 serve as an ideological model and practical inspiration for the Chinese Communist Revolution of 1949?",
     "reference_answer": "The Russian Revolution provided the Chinese Communist Party with its ideological framework, organizational model, and strategic doctrine. The Bolshevik seizure of power in October 1917 demonstrated the viability of a Leninist vanguard party model, and the newly formed Soviet Comintern directly supported, funded, and advised the Chinese Communist Party after its founding in 1921. Mao Zedong adapted Marxist-Leninist theory to Chinese conditions — particularly by centering the revolution on the peasantry rather than the industrial proletariat — drawing lessons from both the successes and failures of the Russian experience; the Soviet Union also provided crucial material support to the CCP during and after World War II, contributing to the Nationalist collapse in 1949.",
-    "expected_chunks": ["revolutions_russian_revolution.txt", "revolutions_chinese_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_russian_revolution.txt",
+      "revolutions_chinese_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2533,8 +2738,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2544,7 +2749,10 @@
     "difficulty": "medium",
     "question": "How did the French Revolution of 1789 and the American Revolution of 1776 differ in their outcomes and long-term political stability?",
     "reference_answer": "Both revolutions were inspired by Enlightenment ideals of liberty and popular sovereignty, but they diverged sharply in outcome and stability. The American Revolution produced a relatively stable constitutional republic from the outset, with the Constitution ratified in 1788 and a functioning federal government established by 1789, partly because it was a war of colonial independence rather than a radical social transformation of an existing society. The French Revolution was far more radical and violent, passing through multiple phases including the Reign of Terror (1793–1794), in which thousands were executed, before cycling through the Directory, the Consulate, and ultimately Napoleon's empire, reflecting the deeper social upheaval involved in dismantling the Ancien Régime from within.",
-    "expected_chunks": ["revolutions_french_revolution.txt", "revolutions_american_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_french_revolution.txt",
+      "revolutions_american_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2560,8 +2768,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2571,7 +2779,10 @@
     "difficulty": "medium",
     "question": "How did the Russian Revolution of 1917 and the Chinese Revolution of 1949 differ in the social class that formed the primary revolutionary base?",
     "reference_answer": "The Russian Revolution was theoretically grounded in Marxist orthodoxy, which identified the urban industrial proletariat (factory workers) as the primary revolutionary class, consistent with the Bolsheviks' initial base of support in Petrograd and other industrial cities. The Chinese Communist Revolution, as shaped by Mao Zedong, fundamentally adapted this model by centering the revolution on the vast rural peasantry, since China had little industrial working class, and built its base through decades of rural organizing, land reform promises, and guerrilla warfare in the countryside. This difference in revolutionary base profoundly shaped each government's subsequent policy priorities: Soviet industrialization initially favored urban workers, while Mao's collectivization programs targeted the rural agrarian sector.",
-    "expected_chunks": ["revolutions_russian_revolution.txt", "revolutions_chinese_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_russian_revolution.txt",
+      "revolutions_chinese_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2587,8 +2798,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2598,7 +2809,10 @@
     "difficulty": "hard",
     "question": "Compare the Haitian Revolution of 1791–1804 and the Cuban Revolution of 1959 in terms of their social composition, methods, and international consequences.",
     "reference_answer": "The Haitian Revolution was the largest and most successful slave uprising in history, driven by an enslaved Black majority who fought for freedom and independence through over a decade of brutal armed conflict against French, Spanish, and British forces, ultimately founding the first Black republic in 1804. The Cuban Revolution was a 20th-century guerrilla movement led primarily by a mixed-class coalition of educated urban professionals and rural peasants under Fidel Castro, achieving power in just over two years (1956–1959) by toppling a US-backed dictatorship. Internationally, Haiti's revolution sent shockwaves through slave-holding societies across the Americas and led to a crippling indemnity demanded by France in 1825, while the Cuban Revolution triggered Cold War crises, including the Bay of Pigs invasion in 1961 and the Cuban Missile Crisis in 1962, reshaping hemispheric relations.",
-    "expected_chunks": ["revolutions_haitian_revolution.txt", "revolutions_cuban_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_haitian_revolution.txt",
+      "revolutions_cuban_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2614,8 +2828,8 @@
       "recall_no_gaps": true
     },
     "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
     "reviewer_notes": ""
   },
   {
@@ -2640,10 +2854,10 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "fail",
+    "sme2_verdict": "pass",
+    "reviewer_notes": "SME disagreement on: item5"
   },
   {
     "id": "gd_099",
@@ -2667,10 +2881,10 @@
       "precision_chunks_relevant": false,
       "recall_no_gaps": false
     },
-    "needs_human_review": false,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": ""
+    "needs_human_review": true,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "fail",
+    "reviewer_notes": "SME disagreement on: item1, item2, item3, item4, item5"
   },
   {
     "id": "gd_100",
@@ -2679,7 +2893,10 @@
     "difficulty": "medium",
     "question": "Which revolution had the greatest impact on world history — the French Revolution or the American Revolution?",
     "reference_answer": "This question is inherently subjective and depends on the criteria and geographic scope used to define 'greatest impact.' Scholars who emphasize the spread of democratic republicanism and constitutional government to Europe and Latin America often credit the French Revolution as the more globally transformative event, while those who focus on the model of stable constitutional democracy, federalism, and the long-term influence of American political institutions frequently favor the American Revolution. Both revolutions were mutually influential and together reshaped the political landscape of the modern world; no objectively correct ranking exists, and the knowledge base presents both as landmark events without adjudicating their relative importance.",
-    "expected_chunks": ["revolutions_french_revolution.txt", "revolutions_american_revolution.txt"],
+    "expected_chunks": [
+      "revolutions_french_revolution.txt",
+      "revolutions_american_revolution.txt"
+    ],
     "checklist_flags": {
       "faith_no_hallucination": true,
       "faith_no_contradiction": true,
@@ -2694,9 +2911,9 @@
       "precision_chunks_relevant": true,
       "recall_no_gaps": true
     },
-    "needs_human_review": true,
-    "sme1_verdict": "",
-    "sme2_verdict": "",
-    "reviewer_notes": "Comparative value judgment with no objectively correct answer; model should present both perspectives, acknowledge subjectivity, and decline to render a definitive verdict."
+    "needs_human_review": false,
+    "sme1_verdict": "pass",
+    "sme2_verdict": "pass",
+    "reviewer_notes": ""
   }
 ]
