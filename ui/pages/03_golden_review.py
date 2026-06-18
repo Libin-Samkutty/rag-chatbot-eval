@@ -127,6 +127,14 @@ if sme1 or sme2:
             f"<span style='color:{color};font-weight:600'>SME2: {sme2.upper()}</span>",
             unsafe_allow_html=True,
         )
+    sme1_reasoning = entry.get("sme1_reasoning", "")
+    sme2_reasoning = entry.get("sme2_reasoning", "")
+    if sme1_reasoning or sme2_reasoning:
+        r_col1, r_col2 = st.columns(2)
+        if sme1_reasoning:
+            r_col1.caption(sme1_reasoning)
+        if sme2_reasoning:
+            r_col2.caption(sme2_reasoning)
 
 st.markdown("---")
 

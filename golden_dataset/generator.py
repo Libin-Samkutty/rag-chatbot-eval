@@ -216,6 +216,8 @@ def _format_entry(idx: int, row: Any) -> dict[str, Any]:
         "needs_human_review": False,
         "sme1_verdict": "",
         "sme2_verdict": "",
+        "sme1_reasoning": "",
+        "sme2_reasoning": "",
         "reviewer_notes": "",
     }
 
