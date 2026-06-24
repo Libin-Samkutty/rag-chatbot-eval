@@ -35,6 +35,15 @@ streamlit>=1.35           # HITL review interface + eval dashboard
 # --- Data ---
 pandas>=2.2               # Golden dataset management + export
 
+# --- Lexical Evaluation (golden dataset only — no API calls) ---
+evaluate>=0.4.0           # HuggingFace evaluate — BLEU, ROUGE metrics
+bert-score>=0.3.13        # BERTScore F1 via roberta-large (~500 MB, HF cache)
+rouge-score>=0.1.2        # ROUGE backend for evaluate
+nltk>=3.8                 # BLEU tokenization support
+
+# --- Experiment Tracking (optional — skipped if MLFLOW_TRACKING_URI unset) ---
+mlflow>=2.13
+
 # --- Testing ---
 pytest>=8.2
 pytest-asyncio>=0.23

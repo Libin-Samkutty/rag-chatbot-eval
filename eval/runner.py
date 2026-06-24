@@ -26,6 +26,8 @@ Adding a new dimension:
 """
 
 import asyncio
+import logging
+import os
 import time
 
 from openai import AsyncOpenAI
@@ -44,6 +46,8 @@ from eval.ragas_eval import (
     score_faithfulness,
 )
 
+logger = logging.getLogger(__name__)
+
 
 async def run_evals(
     question: str,
@@ -52,6 +56,7 @@ async def run_evals(
     reference_answer: str | None,
     start_time: float,
     openai_client: AsyncOpenAI,
+    domain_tag: str | None = None,
 ) -> EvalResult:
     """
     Run all eight evaluation dimensions concurrently and return EvalResult.
@@ -103,7 +108,7 @@ async def run_evals(
         toxicity_result.passed,
     ])
 
-    return EvalResult(
+    result = EvalResult(
         faithfulness=faithfulness_result,
         answer_relevancy=relevancy_result,
         completeness=completeness_result,
@@ -115,3 +120,56 @@ async def run_evals(
         latency_ms=round(latency_ms, 1),
         overall_passed=overall_passed,
     )
+    _log_to_mlflow(result, domain_tag, question)
+    return result
+
+
+def _log_to_mlflow(
+    result: EvalResult,
+    domain_tag: str | None,
+    question: str,
+) -> None:
+    """Log eval metrics and tags to MLflow if MLFLOW_TRACKING_URI is configured.
+
+    Skips silently when the env var is absent so environments without mlflow
+    installed continue to work. Any logging failure is non-fatal.
+    """
+    if not os.getenv("MLFLOW_TRACKING_URI"):
+        return
+    try:
+        import mlflow  # late import — not required when tracking URI is unset
+
+        dimensions = [
+            "faithfulness",
+            "answer_relevancy",
+            "completeness",
+            "context_precision",
+            "context_recall",
+            "coherence",
+            "historical_balance",
+            "toxicity",
+        ]
+        geval_scores = {
+            "completeness_score": result.completeness.score,
+            "coherence_score": result.coherence.score,
+            "historical_balance_score": result.historical_balance.score,
+            "toxicity_score": result.toxicity.score,
+        }
+
+        with mlflow.start_run():
+            for dim in dimensions:
+                mlflow.log_metric(
+                    f"{dim}_passed",
+                    int(getattr(result, dim).passed),
+                )
+            for name, value in geval_scores.items():
+                if value is not None:
+                    mlflow.log_metric(name, value)
+            mlflow.log_metric("latency_ms", result.latency_ms)
+            mlflow.log_metric("overall_passed", int(result.overall_passed))
+
+            mlflow.set_tag("domain_tag", domain_tag or "all")
+            mlflow.set_tag("overall_passed", str(result.overall_passed).lower())
+            mlflow.set_tag("question", question[:100])
+    except Exception as e:
+        logger.warning("MLflow logging failed (non-fatal): %s", e)
