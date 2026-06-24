@@ -12,12 +12,15 @@ Core endpoint that:
 OpenAI is used only for embeddings. Generation is handled by Gemini.
 """
 
+import asyncio
 import json
+import logging
 import time
 import uuid
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from google import genai
+from google.genai import errors as genai_errors
 from google.genai import types
 from openai import AsyncOpenAI
 from pydantic import BaseModel
@@ -28,6 +31,7 @@ from eval.models import EvalResult
 from eval.runner import run_evals
 from rag.retriever import retrieve_chunks
 
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
@@ -69,6 +73,40 @@ def _get_gemini_client() -> genai.Client:
     )
 
 
+async def _generate_answer(gemini: genai.Client, prompt: str) -> str:
+    """
+    Call Gemini via the native async API with retry on 429.
+
+    Uses client.aio.models.generate_content (a true coroutine) — no
+    asyncio.to_thread needed, so ProactorEventLoop IOCP issues on Windows
+    Python 3.14 are fully avoided.  Retries up to 3 times with exponential
+    backoff (2 s, 4 s) on RESOURCE_EXHAUSTED.
+    """
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            resp = await gemini.aio.models.generate_content(
+                model=settings.gemini_model,
+                contents=prompt,
+                config=types.GenerateContentConfig(temperature=0.2),
+            )
+            return resp.text or ""
+        except genai_errors.ClientError as exc:
+            is_rate_limit = "RESOURCE_EXHAUSTED" in str(exc) or "429" in str(exc)
+            if not is_rate_limit:
+                raise  # Non-rate-limit error: surface immediately
+            if attempt == max_retries - 1:
+                break  # Rate-limit but retries exhausted: fall through to 503
+            wait = 2 ** (attempt + 1)  # 2s then 4s
+            logger.warning(
+                "Gemini 429 RESOURCE_EXHAUSTED — retrying in %ds (attempt %d/%d)",
+                wait, attempt + 1, max_retries,
+            )
+            await asyncio.sleep(wait)
+    logger.warning("Gemini rate limit exhausted after %d retries — returning 503", max_retries)
+    raise HTTPException(status_code=503, detail="Gemini temporarily unavailable (rate limit)")
+
+
 def _build_prompt(question: str, context_chunks: list[dict]) -> str:
     """Assemble the augmented prompt with retrieved context."""
     context_text = "\n\n---\n\n".join(
@@ -105,12 +143,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
     prompt = _build_prompt(request.question, chunks)
 
     gemini = _get_gemini_client()
-    resp = gemini.models.generate_content(
-        model=settings.gemini_model,
-        contents=prompt,
-        config=types.GenerateContentConfig(temperature=0.2),
-    )
-    answer: str = resp.text or ""
+    answer: str = await _generate_answer(gemini, prompt)
 
     # Step 3: Run all eight eval metrics concurrently
     context_texts = [chunk["text"] for chunk in chunks]

@@ -350,3 +350,217 @@ def _error_dimension(name: str, exc: Exception) -> DimensionResult:
         tier1_failed=[],
         tier2_pass_rate=0.0,
     )
+
+
+# ---------------------------------------------------------------------------
+# Combined prompt — all four RAGAS dimensions in one GPT-4o call
+# ---------------------------------------------------------------------------
+# Cost optimisation: replaces four separate _judge() calls with one.
+# The individual score_* functions above are preserved for reference.
+
+_COMBINED_RAGAS_PROMPT = """You are an expert RAG evaluation judge. Evaluate the following question-answer pair across four dimensions in a single pass.
+
+Question: {question}
+Answer: {answer}
+Ground Truth: {ground_truth}
+
+Retrieved Context Chunks:
+{chunks}
+
+---
+
+FAITHFULNESS: Extract every factual claim made in the answer. For each claim judge:
+  verdict: "supported" (present in context), "unsupported" (hallucination), or "contradiction" (contradicts context)
+  type: "temporal" (dates/years), "numeric" (stats/counts), "naming" (people/places/events), or "general"
+
+ANSWER_RELEVANCY:
+  addresses_question: does the answer directly address what was asked?
+  no_tangent: does it stay on topic without extended tangents?
+  intent_match: does it match the intent (factual, explanatory, comparative)?
+
+CONTEXT_PRECISION: For each retrieved chunk in order, true if it was relevant to answering the question.
+  The chunk_relevance array must be exactly {num_chunks} elements long.
+
+CONTEXT_RECALL: Extract the key factual claims from the ground truth. For each claim, judge whether it can be derived from the retrieved context.
+
+Respond in JSON only:
+{{
+  "faithfulness": {{
+    "claims": [{{"claim": "...", "verdict": "supported|unsupported|contradiction", "type": "temporal|numeric|naming|general"}}]
+  }},
+  "answer_relevancy": {{
+    "addresses_question": true,
+    "no_tangent": true,
+    "intent_match": true,
+    "reason": "one sentence"
+  }},
+  "context_precision": {{
+    "chunk_relevance": [true, false, ...],
+    "reason": "one sentence"
+  }},
+  "context_recall": {{
+    "claims": [{{"claim": "...", "covered": true}}],
+    "reason": "one sentence"
+  }}
+}}"""
+
+
+async def score_ragas_all(
+    question: str,
+    context: list[str],
+    answer: str,
+    reference_answer: str | None,
+    openai_client: AsyncOpenAI,
+) -> tuple[DimensionResult, DimensionResult, DimensionResult, DimensionResult]:
+    """
+    Evaluate all four RAGAS dimensions in a single GPT-4o call.
+
+    Consolidated from four separate _judge() calls to save on API cost
+    (~4x fewer round-trips vs. the individual score_* functions above).
+    Returns: (faithfulness, answer_relevancy, context_precision, context_recall)
+    """
+    try:
+        ground_truth = reference_answer if reference_answer else answer
+        chunks_text = "\n\n".join(
+            f"[Chunk {i + 1}]: {chunk}" for i, chunk in enumerate(context)
+        )
+        data = await _judge(
+            _COMBINED_RAGAS_PROMPT.format(
+                question=question,
+                answer=answer,
+                ground_truth=ground_truth,
+                chunks=chunks_text,
+                num_chunks=len(context),
+            ),
+            openai_client,
+        )
+    except Exception as exc:
+        logger.error("Combined RAGAS eval error: %s", exc)
+        return (
+            _error_dimension("faithfulness", exc),
+            _error_dimension("answer_relevancy", exc),
+            _error_dimension("context_precision", exc),
+            _error_dimension("context_recall", exc),
+        )
+
+    # Parse each dimension independently — a bad sub-result in one dimension
+    # does not prevent the others from being returned.
+
+    # 1. Faithfulness
+    try:
+        faith_data = data.get("faithfulness", {})
+        claims = faith_data.get("claims", [])
+        unsupported = [c for c in claims if c.get("verdict") == "unsupported"]
+        contradicted = [c for c in claims if c.get("verdict") == "contradiction"]
+
+        def _type_failed(t: str) -> bool:
+            bad = {c["claim"] for c in unsupported + contradicted}
+            return any(c["claim"] in bad and c.get("type") == t for c in claims)
+
+        faith_items: list[ChecklistItem] = [
+            ChecklistItem(
+                key="faith_no_hallucination",
+                question="Does the answer avoid stating any fact not present in the retrieved context?",
+                result=len(unsupported) == 0,
+                tier=1,
+            ),
+            ChecklistItem(
+                key="faith_no_contradiction",
+                question="Does the answer avoid directly contradicting any statement in the retrieved context?",
+                result=len(contradicted) == 0,
+                tier=1,
+            ),
+            ChecklistItem(
+                key="faith_temporal_accuracy",
+                question="Are all dates, years, and time-based claims supported by the retrieved context?",
+                result=not _type_failed("temporal"),
+                tier=2,
+            ),
+            ChecklistItem(
+                key="faith_numeric_fidelity",
+                question="Are all numeric values, statistics, and counts supported by the retrieved context?",
+                result=not _type_failed("numeric"),
+                tier=2,
+            ),
+            ChecklistItem(
+                key="faith_proper_naming",
+                question="Are all named people, places, and events named correctly per the retrieved context?",
+                result=not _type_failed("naming"),
+                tier=2,
+            ),
+        ]
+        faithfulness_result = evaluate_faithfulness(faith_items)
+    except Exception as exc:
+        logger.error("Faithfulness parse error in combined RAGAS: %s", exc)
+        faithfulness_result = _error_dimension("faithfulness", exc)
+
+    # 2. Answer relevancy
+    try:
+        rel_data = data.get("answer_relevancy", {})
+        rel_items: list[ChecklistItem] = [
+            ChecklistItem(
+                key="relevancy_addresses_question",
+                question="Does the answer directly address what the question asked?",
+                result=bool(rel_data.get("addresses_question", False)),
+                tier=2,
+            ),
+            ChecklistItem(
+                key="relevancy_no_tangent",
+                question="Does the answer stay on topic without extended tangents?",
+                result=bool(rel_data.get("no_tangent", False)),
+                tier=2,
+            ),
+            ChecklistItem(
+                key="relevancy_intent_match",
+                question="Does the answer match the intent of the question?",
+                result=bool(rel_data.get("intent_match", False)),
+                tier=2,
+            ),
+        ]
+        relevancy_result = evaluate_answer_relevancy(rel_items)
+    except Exception as exc:
+        logger.error("Answer relevancy parse error in combined RAGAS: %s", exc)
+        relevancy_result = _error_dimension("answer_relevancy", exc)
+
+    # 3. Context precision
+    try:
+        prec_data = data.get("context_precision", {})
+        relevance_flags: list[bool] = prec_data.get("chunk_relevance", [])
+        while len(relevance_flags) < len(context):
+            relevance_flags.append(True)
+        relevance_flags = relevance_flags[: len(context)]
+        prec_items: list[ChecklistItem] = [
+            ChecklistItem(
+                key="precision_chunk_relevant",
+                question="Is this retrieved chunk relevant to answering the question?",
+                result=flag,
+                tier=2,
+            )
+            for flag in relevance_flags
+        ]
+        precision_result = evaluate_context_precision(prec_items)
+    except Exception as exc:
+        logger.error("Context precision parse error in combined RAGAS: %s", exc)
+        precision_result = _error_dimension("context_precision", exc)
+
+    # 4. Context recall
+    try:
+        recall_data = data.get("context_recall", {})
+        recall_claims = recall_data.get("claims", [])
+        if not recall_claims:
+            recall_claims = [{"claim": "(synthetic)", "covered": True}]
+        recall_items: list[ChecklistItem] = [
+            ChecklistItem(
+                key="recall_claim_covered",
+                question="Is this ground-truth claim covered by at least one retrieved chunk?",
+                result=bool(c.get("covered", False)),
+                tier=2,
+            )
+            for c in recall_claims
+        ]
+        recall_result = evaluate_context_recall(recall_items)
+    except Exception as exc:
+        logger.error("Context recall parse error in combined RAGAS: %s", exc)
+        recall_result = _error_dimension("context_recall", exc)
+
+    return faithfulness_result, relevancy_result, precision_result, recall_result
