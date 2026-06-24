@@ -6,10 +6,12 @@ need to call os.environ directly anywhere else in the codebase.
 """
 
 from google.oauth2 import service_account
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
     # Required
     openai_api_key: str
 
@@ -36,10 +38,6 @@ class Settings(BaseSettings):
     # Server ports
     api_port: int = 8000
     ui_port: int = 8501
-
-    class Config:
-        env_file = ".env"
-        extra = "ignore"
 
 
 def load_vertex_credentials() -> service_account.Credentials:
