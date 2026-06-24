@@ -245,10 +245,11 @@ class TestChecklistEvaluators:
     def test_completeness_geval_passes_above_threshold(self):
         """Completeness G-Eval passes when score >= 0.7."""
         import asyncio
-        from unittest.mock import patch
+        from unittest.mock import AsyncMock, patch
         from eval.deepeval_eval import score_completeness
 
-        with patch("eval.deepeval_eval._run_geval_sync", return_value=0.8):
+        with patch("eval.deepeval_eval._run_geval", new_callable=AsyncMock) as mock_geval:
+            mock_geval.return_value = 0.8
             result = asyncio.run(score_completeness("What caused WW1?", ["context chunk"], "The answer."))
 
         assert result.passed is True
@@ -258,10 +259,11 @@ class TestChecklistEvaluators:
     def test_completeness_geval_fails_below_threshold(self):
         """Completeness G-Eval fails when score < 0.7."""
         import asyncio
-        from unittest.mock import patch
+        from unittest.mock import AsyncMock, patch
         from eval.deepeval_eval import score_completeness
 
-        with patch("eval.deepeval_eval._run_geval_sync", return_value=0.5):
+        with patch("eval.deepeval_eval._run_geval", new_callable=AsyncMock) as mock_geval:
+            mock_geval.return_value = 0.5
             result = asyncio.run(score_completeness("What caused WW1?", ["context chunk"], "The answer."))
 
         assert result.passed is False
