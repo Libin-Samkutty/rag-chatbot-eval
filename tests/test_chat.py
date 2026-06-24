@@ -62,11 +62,8 @@ def mock_run_evals():
 
 @pytest.fixture
 def mock_gemini():
-    mock_response = MagicMock()
-    mock_response.text = "Test answer about WW1."
-    mock_client = MagicMock()
-    mock_client.models.generate_content.return_value = mock_response
-    with patch("routers.chat._get_gemini_client", return_value=mock_client) as m:
+    with patch("routers.chat._generate_answer", new_callable=AsyncMock) as m:
+        m.return_value = "Test answer about WW1."
         yield m
 
 
