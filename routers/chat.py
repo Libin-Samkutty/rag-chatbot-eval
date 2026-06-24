@@ -114,6 +114,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
 
     # Step 3: Run all eight eval metrics concurrently
     context_texts = [chunk["text"] for chunk in chunks]
+    domain_tag = chunks[0]["domain_tag"] if chunks else "general"
     eval_result = await run_evals(
         question=request.question,
         context=context_texts,
@@ -121,12 +122,10 @@ async def chat(request: ChatRequest) -> ChatResponse:
         reference_answer=None,
         start_time=start_time,
         openai_client=openai_client,
+        domain_tag=domain_tag,
     )
 
-    # Step 4: Determine domain tag from first chunk (fall back to "general")
-    domain_tag = chunks[0]["domain_tag"] if chunks else "general"
-
-    # Step 5: Persist to SQLite
+    # Step 4: Persist to SQLite
     message_id = str(uuid.uuid4())
     save_conversation({
         "id": message_id,

@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  unit-tests:
+    name: Unit Tests + Lexical Metrics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          # Static key — roberta-large model weights don't change between runs
+          key: ${{ runner.os }}-hf-roberta-large-v1
+
+      - run: pip install -r requirements.txt
+
+      - name: Unit tests (no API calls)
+        run: pytest tests/ -v -k "not eval_suite"
+        env:
+          # config.py calls Settings() at import time; these dummy values satisfy
+          # required fields without ever reaching the real APIs (all calls mocked)
+          OPENAI_API_KEY: "dummy-not-used-in-unit-tests"
+          VERTEX_PROJECT_ID: "dummy-project"
+
+      - name: Lexical metrics (no API calls)
+        run: pytest tests/evals/test_lexical_eval.py -v

@@ -1,0 +1,58 @@
+name: Eval Suite (Nightly + Manual)
+
+on:
+  # Schedule commented out — this is a demo/portfolio project and does not
+  # need nightly runs against real APIs. Trigger manually via workflow_dispatch.
+  # schedule:
+  #   - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  eval-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - run: pip install -r requirements.txt
+
+      - name: Write Vertex credentials
+        run: |
+          mkdir -p credentials
+          echo '${{ secrets.GOOGLE_CREDENTIALS_JSON }}' > credentials/client_secrets.json
+
+      - name: Start FastAPI server
+        run: uvicorn main:app --host 0.0.0.0 --port 8000 &
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          VERTEX_PROJECT_ID: ${{ secrets.VERTEX_PROJECT_ID }}
+          GOOGLE_APPLICATION_CREDENTIALS: ./credentials/client_secrets.json
+
+      - name: Wait for server ready
+        run: |
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8000/api/health && break
+            sleep 2
+          done
+
+      - name: Golden dataset eval suite
+        run: pytest tests/evals/test_eval_suite.py --run-evals -v
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          VERTEX_PROJECT_ID: ${{ secrets.VERTEX_PROJECT_ID }}
+          GOOGLE_APPLICATION_CREDENTIALS: ./credentials/client_secrets.json
+
+      - name: Adversarial test suite
+        run: pytest tests/evals/test_adversarial.py --run-evals -v
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          VERTEX_PROJECT_ID: ${{ secrets.VERTEX_PROJECT_ID }}
+          GOOGLE_APPLICATION_CREDENTIALS: ./credentials/client_secrets.json
